@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="toc-constraints"><div class="title">Constraints</div><ul><li><a href="root.html">Root</a></li><li><a href="ban.html">Ban</a></li><li><a href="fence.html">Fence</a></li><li><a href="quarantine.html">Quarantine</a></li><li><a href="among.html">Among</a></li><li><a href="lonely.html">Lonely</a></li><li><a href="split.html">Split</a></li><li><a href="splitamong.html">SplitAmong</a></li><li><a href="gather.html">Gather</a></li><li><a href="spread.html">Spread</a></li><li><a href="lazyspread.html">LazySpread</a></li><li><a href="mostlyspread.html">MostlySpread</a></li><li><a href="preserve.html">Preserve</a></li><li><a href="oversubscription.html">Oversubscription</a></li><li><a href="cumulatedcapacity.html">CumulatedCapacity</a></li><li><a href="singlecapacity.html">SingleCapacity</a></li><li><a href="minspareresources.html">MinSpareResources</a></li><li><a href="maxspareresources.html">MaxSpareResources</a></li><li><a href="maxonlines.html">MaxOnlines</a></li><li><a href="offline.html">Offline</a></li><li><a href="online.html">Online</a></li></ul></div><h1>Ban</h1>
+<h2 id="uid52">Definition</h2>
+<h3 id="uid53">Signature</h3>
+<p><code>ban(vs : set&lt;VM&gt;, ns : set&lt;server&gt;)</code></p>
+<ul>
+<li><p><code>vs</code> : an non-empty set of VMs for a meaningful constraint. VMs not in the <code>Running</code> state are ignored.</p>
+</li>
+<li><p><code>ns</code> : an non-empty set of servers for a meaningful constraint. Servers not in the <code>Online</code> state are ignored.</p>
+</li></ul>
+<p>The <code>ban</code> constraint disallows each running VM in <code>vs</code> to be hosted on any of
+the online servers in <code>ns</code>.</p>
+<p><h3>Classification</h3><ul><li><b>Primary users</b>: 
+<a href="theindex.html?#datacenter administrator">datacenter administrator</a></li><li><b>Manipulated elements</b>: 
+<a href="theindex.html?#VM placement">VM placement</a></li><li><b>Concerns</b>: 
+<a href="theindex.html?#Maintenance">Maintenance</a>, <a href="theindex.html?#Partitioning">Partitioning</a>, <a href="theindex.html?#VM-to-server placement">VM-to-server placement</a></li></ul></p>
+
+<h3 id="uid61">Usage</h3>
+<p>This constraint may be use by the datacenter administrator to prepare servers for a software maintenance.
+In this situation, the administrator must first be sure that the servers do not host any running VMs to prevent a
+misconfiguration from altering them. Every running VM on these servers must then be relocated elsewhere
+while the other VMs should not be relocated on the servers to put into maintenance.
+A datacenter administrator may rely on a <code>ban</code> constraint to achieve that purpose. In this setting, all
+the VMs in the datacenter are given in parameters in addition to the servers to put into maintenance. At the end
+of the reconfiguration, no VMs will be running on the servers. Once the maintenance operation is terminated,
+the constraint may be removed to put the servers back into the hosting pool.</p>
+<p>For partitioning reasons, some VMs may be disallowed to be running on some servers. As an example, servers may be dedicated to run service VMs. In this setting, the client VMs must not be allowed to run on the servers dedicated to run service VMs. <code>Ban</code> constraints may then be used by the datacenter administrator for that purpose.</p>
+
+<h3 id="uid62">Example</h3>
+<p>Figure <a href="#2">2</a> depicts a sample reconfiguration between a source and a destination configuration.
+In this example, the following <code>ban</code> constraints were considered:</p>
+<div class="reconfiguration"><div class="left-config"><div class="listing"><p><code>N1: VM1 VM2</code></p>
+<p><code>N2: VM4 VM3</code></p>
+<p><code>N3:</code></p>
+</div></div><div class="arrow-reconfig"><img src="img/arrow_reconfiguration.png" width="90px" alt="arrow" /></div><div class="right-config"><div class="listing"><p><code>N1: VM1</code></p>
+<p><code>N2: (VM3)</code></p>
+<p><code>N3: VM2 VM4</code></p>
+</div></div><p class="caption"><span class="float-label"><span class="float-name">Figure </span><span class="float-number">2</span>: </span>A reconfiguration motivated by <code>ban</code> constraints.</p></div>
+<ul>
+<li><p><code>ban({VM1, VM2, VM4}, {N2})</code>. This constraint was not satisfied in the source configuration
+as <code>VM4</code> was running on <code>N2</code>. The reconfiguration fixed this violation
+by relocating <code>VM4</code> to <code>N3</code>.</p>
+</li>
+<li><p><code>ban({VM3}, {N2})</code>. This constraint was not satisfied in the source configuration. However it is satisfied in the destination configuration as <code>VM3</code> is no longer running.</p>
+</li>
+<li><p><code>ban({VM1, VM2}, {N2})</code>. This constraint was satisfied in the source configuration. It is still satisfied in the destination configuration as the relocation of <code>VM2</code> is compatible with this constraint.</p>
+</li></ul>
+
+<h2 id="uid67">See also</h2>
+<h3 id="uid68">Related Constraints</h3>
+<ul>
+<li><p><a href="fence.html"><code>fence</code></a>: the opposite constraint of <code>ban</code>. One <code>ban</code> constraint can be emulated using a <code>fence</code> constraint by specifying to the <code>fence</code> constraint, the absolute complement of the set of servers specified in the <code>ban</code> constraint.</p>
+</li>
+<li><p><a href="quarantine.html"><code>quarantine</code></a>. The <code>quarantine</code> constraint may also be used to prepare a software maintenance on servers when relocation is not possible. In this setting, the given servers will be ready for the maintenance once their VMs are terminated.</p>
+</li></ul>
+
+<h3 id="uid71">Reformulation(s)</h3>
+<ul>
+<li><p>Using <a href="fence.html"><code>fence</code></a>: <code>ban(vs1, ns1)</code> &#8596; <code>fence(vs1,<span class="oline">ns1</span>)</code></p>
+</li>
+<li><p>Using <a href="among.html"><code>among</code></a>: <code>ban(vs1, ns1)</code> &#8596; <code>among(vs1,{<span class="oline">ns1</span>})</code></p>
+</li></ul>
+
+<h3 id="uid74">Specialization(s)</h3>
+<ul>
+<li><p>To <a href="fence.html"><code>fence</code></a>: <code>ban(vs1,<span class="oline">ns1</span>)</code> &#8596; <code>fence(vs1, ns1)</code></p>
+</li></ul>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+% !TEX root =  main.tex
+\chapter{Constraints}
+\label{ch: constraints}
+
+
+This catalog aggregates constraints related to the management of VMs and
+servers on hosting platforms. 
+%
+Previous chapters present key elements that may be impacted by a reconfiguration :
+VM state and placement, server state, resource allocation.
+%
+The present chapter enumerates numerous constraints that are of a practical interest
+for applications and datacenter administrators to express dependability or management
+requirements such as performance, availability or security.
+%
+Such constraints may then be implemented in different VM managers to provide an initial
+deployment or a reconfiguration process that is consistent with regards to the expressed
+constraints.
+ 
+ 
+Each section of this chapter details a specific constraint.
+First, a definition is provided to specify the guarantees provided by the constraint.
+%
+A classification allows to categorize the constraint depending on the element it manipulates,
+the primary concern it addresses or the typical users.
+%
+Several use cases illustrate then the practical interest of the constraint and examples depicts its 
+impact on a reconfiguration process.
+%
+Finally, references to closely related constraints are provided.
+
+Several notations are used within this chapter to write the constraints signature or sample configuration.
+Chapter~\ref{ch: annexe} details these notations.
+
+
+\fullVersion{
+\begin{itemize}
+\item Its definition to specify the guarantees the constraint provides.
+%
+Several use cases illustrate then the practical interest of the constraint.
+%
+%
+Last, examples depicts the impact of the constraints on a reconfiguration process.
+%
+%
+Several notations are used in this chapter to write constraints and configuration. Chapter~\ref{ch: annex} 
+details the notations.
+%
+The grammar used to express the constraint signature and usage is described in Section~\ref{cstr signature}. 
+%
+The grammar used to express the example configurations is described in Section~\ref{sec: config signature}.
+
+%\item Its model in terms of variables of the RPs to describe how the constraint can be formally
+expressed. This model can then be used to implement the constraint on several VM manager.
+
+%\item Its availability in VM managers. For each VM manager that provide a constraint compatible
+with the specification, additional details provide explanations to the constraints. When the
+constraint is available in {\btrp}, its model is discussed.
+
+%\item A method to detect violating element. This method allows to retrieve from a configuration
+the elements that may not satisfy the constraint. This provides fast heuristics to first check
+if a constraint is satisfied and if not, the element that may be violating the constraint. The
+detection of the violating element is however not necessarily optimal and may present some
+false positive due to the combinatorial aspects of the constraint.
+
+\item Some references to other constraints in the catalog. These references allow to navigate
+among the available constraint depending on their relationships with the presented constraint. 
+
+\end{itemize}
+}
+\clearpage
+\input{constraints/root}
+\clearpage
+\input{constraints/ban}
+\clearpage
+\input{constraints/fence}
+\clearpage
+\input{constraints/quarantine}
+\clearpage
+\input{constraints/among}
+\clearpage
+\input{constraints/lonely}
+\clearpage
+\input{constraints/split}
+\clearpage
+\input{constraints/splitAmong}
+\clearpage
+\input{constraints/gather}
+\clearpage
+\input{constraints/spread}
+\clearpage
+\input{constraints/lazySpread}
+\clearpage
+\input{constraints/mostlySpread}
+\clearpage
+\input{constraints/preserve}
+\clearpage
+\input{constraints/oversubscription}
+\clearpage
+\input{constraints/cumulatedCapacity}
+\clearpage
+\input{constraints/singleCapacity}
+\clearpage
+\input{constraints/minSpareResources}
+\clearpage
+\input{constraints/maxSpareResources}
+\clearpage
+\input{constraints/maxOnlines}
+\clearpage
+\input{constraints/offline}
+\clearpage
+\input{constraints/online}
+\clearpage
+
+%\input{constraints/borderPatrol}
+%\clearpage
+%\input{constraints/globalOverSubscription}
+%\clearpage
+%\input{constraints/globalSpareCapacity}
+%\clearpage
+%\input{constraints/platform}
+%\clearpage
+%\input{constraints/reconfigurable}
+%\clearpage
+%\input{constraints/running}
+%\clearpage
+%\input{constraints/singleSpareCapacity}
+%\clearpage
+%\input{constraints/sleeping}
+%\clearpage
+%\input{constraints/terminating}
+%\clearpage
+%\input{constraints/waiting}

@@ -1,0 +1,108 @@
+% !TEX root =  main.tex
+\chapter{Notations}
+\label{ch: annexe}
+This chapter describes the notations that are used in the catalog to depict configurations or constraints 
+
+\section{Describing a configuration}
+\label{sec: config signature}
+A configuration depicts the state of servers and virtual machines (see Chapter~\ref{ch: reconfiguration}), and the current placement of virtual machines. For convenience, we propose here a textual, human readable, format to describe a configuration. Listing~\ref{lst: config ebnf} describes the textual format for a configuration using the Extended Backus-Naur Form (EBNF)~\cite{ebnf}.
+%
+In addition, every identifier in a configuration is supposed to be unique.
+
+
+\begin{myListing}
+\begin{lstlisting}
+configuration = server (endl+ server)* (endl+ waitings)? endl*;
+on_id = id;
+off_id = "(" id ")";
+paused_id = "!" id
+waitings = "?" ":" on_id+;
+server = (server_off | server_on);
+server_off = off_id;
+server_on = on_id ":" vm*;
+vm = on_id | off_id | paused_id;
+endl = "\n";
+letter = "a" ... "z" | "A" ... "Z";
+digit = "0" ... "9";
+id = letter (letter | digit)*;
+\end{lstlisting}
+\caption{EBNF definition of a configuration}\label{lst: config ebnf}
+\end{myListing}
+
+
+Listing~\ref{lst: cfg sample} depicts a sample configuration composed of 3 servers and 5 virtual machines.
+Server \cstr{N1} and \cstr{N2} are in the \st{Online} state. \cstr{N1} is hosting 3 virtual machines that are \cstr{VM1}, \cstr{VM2}, and \cstr{VM3}. \cstr{VM1} and \cstr{VM2} are in the \st{Running} state while \cstr{VM3} is in the \st{Suspended} state.
+The server \cstr{N2} is hosting the virtual machine \cstr{VM4} that is in the \st{Paused} state.
+The server \cstr{N3} is in the \st{Offline} state.
+Finally, the virtual machine \cstr{VM6} is in the \st{Waiting} state.
+
+\begin{myListing}
+\begin{lstlisting}
+N1 : VM1 VM2 (VM3)
+N2 : !VM4
+(N3)
+?  : VM6
+\end{lstlisting}
+\caption{A sample well-formed configuration.}\label{lst: cfg sample}
+\end{myListing}
+
+\section{Describing a constraint}
+\label{sec: cstr signature}
+
+\subsection{Declaration}
+Each constraint presented in the catalog has a specific signature. In practice, a constraint has
+an unique identifier and takes into account a variable amount of parameters.
+Listing~ref{let: cstr decl ebnf} describes the textual format for a constraint signature using the EBNF.
+
+\begin{myListing}
+\begin{lstlisting}
+constraint_decl = id "(" params ");
+id = letter (letter | digit | "_")*;
+letter = "a" ... "z" | "A" ... "Z";
+digit = "0" ... "9";
+
+params = param ("," param) *;
+param = id ":" type;
+type = (VM_t | server_t | number_t | set_t | string_t);
+VM_t = "VM";
+server_t = "server";
+number_t = "number";
+string_t = "string";
+set_t = "set<" type ">";
+\end{lstlisting}
+\caption{EBNF definition of a constraint signature}\label{lst: cstr decl ebnf}
+\end{myListing}
+
+The following signature declares a constraint named \cstr{foo}, that takes as parameters a set of VMs named \cstr{s1}, a set of servers named \cstr{s2}, a number \cstr{x}, and a string \cstr{y}:
+
+\smallskip
+\cstr{foo(s1:set<VM>, s2:set<set<server>>, x:number, y:string)}
+
+\subsection{Usage}
+
+Constraints deserves to be used to indicate management restrictions. Listing~\ref{lst: cstr usage ebnf} describes the textual format for a constraint call using the EBNF.
+
+\begin{myListing}
+\begin{lstlisting}
+constraint_ref & id "(" params ");
+params & param ("," param)*;
+param & id | set | string;
+set & { params? };
+
+string & """ (letter | digit)* """;
+id & letter (letter | digit | "_")*;
+letter & "a" ... "z" | "A" ... "Z";
+digit & "0" ... "9";
+\end{lstlisting}
+\caption{EBNF definition of a constraint signature}\label{lst: cstr usage ebnf}
+\end{myListing}
+
+Following example shows a sample usage of the constraint \cstr{foo} declared previously.
+The first argument is a set of 3 elements named \cstr{VM1},\cstr{VM2},\cstr{VM3}. From the constraint signature, each of these elements has to be a virtual machine.
+The second parameter is a set of 2 servers that are named \cstr{N1}, and \cstr{N2}.
+The third parameter is the number 5.
+The fourth parameter is the string "bar" :
+
+\smallskip
+\cstr{foo(\{VM1, VM2, VM3\}, \{\{N1, N2\},\{N3\}\}, 5, "bar")}
+

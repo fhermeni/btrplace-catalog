@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="chapter-toc"><div class="title">Summary</div><ul class="level-1"><li><a href="#uid461">Describing a configuration</a></li><li><a href="#uid464">Describing a constraint</a><ul class="level-2"><li><a href="#uid465">Declaration</a></li><li><a href="#uid467">Usage</a></li></ul></li></ul></div><h1>Notations</h1>
+<p>This chapter describes the notations that are used in the catalog to depict configurations or constraints</p>
+<h2 id="uid461">Describing a configuration</h2>
+<p>A configuration depicts the state of servers and virtual machines (see Chapter 
+  "<a href="virtualized_hosting_platforms.html">Virtualized hosting platforms</a>"
+), and the current placement of virtual machines. For convenience, we propose here a textual, human readable, format to describe a configuration. Listing <a href="#1">1</a> describes the textual format for a configuration using the Extended Backus-Naur Form (EBNF) [<a href="references.html#bid52">19</a>].
+In addition, every identifier in a configuration is supposed to be unique.</p>
+<div class="myListing"><div class="listing"><p><code>configuration = server (endl+ server)* (endl+ waitings)? endl*;</code></p>
+<p><code>on_id = id;</code></p>
+<p><code>off_id = "(" id ")";</code></p>
+<p><code>paused_id = "!" id</code></p>
+<p><code>waitings = "?" ":" on_id+;</code></p>
+<p><code>server = (server_off | server_on);</code></p>
+<p><code>server_off = off_id;</code></p>
+<p><code>server_on = on_id ":" vm*;</code></p>
+<p><code>vm = on_id | off_id | paused_id;</code></p>
+<p><code>endl = "\n";</code></p>
+<p><code>letter = "a" ... "z" | "A" ... "Z";</code></p>
+<p><code>digit = "0" ... "9";</code></p>
+<p><code>id = letter (letter | digit)*;</code></p>
+</div>
+<p class="caption"><span class="float-label"><span class="float-name">Listing </span><span class="float-number">1</span>:</span> EBNF definition of a configuration</p></div>
+<p>Listing <a href="#2">2</a> depicts a sample configuration composed of 3 servers and 5 virtual machines.
+Server <code>N1</code> and <code>N2</code> are in the <code>Online</code> state. <code>N1</code> is hosting 3 virtual machines that are <code>VM1</code>, <code>VM2</code>, and <code>VM3</code>. <code>VM1</code> and <code>VM2</code> are in the <code>Running</code> state while <code>VM3</code> is in the <code>Suspended</code> state.
+The server <code>N2</code> is hosting the virtual machine <code>VM4</code> that is in the <code>Paused</code> state.
+The server <code>N3</code> is in the <code>Offline</code> state.
+Finally, the virtual machine <code>VM6</code> is in the <code>Waiting</code> state.</p>
+<div class="myListing"><div class="listing"><p><code>N1 : VM1 VM2 (VM3)</code></p>
+<p><code>N2 : !VM4</code></p>
+<p><code>(N3)</code></p>
+<p><code>?  : VM6</code></p>
+</div>
+<p class="caption"><span class="float-label"><span class="float-name">Listing </span><span class="float-number">2</span>:</span> A sample well-formed configuration.</p></div>
+
+<h2 id="uid464">Describing a constraint</h2>
+<h3 id="uid465">Declaration</h3>
+<p>Each constraint presented in the catalog has a specific signature. In practice, a constraint has
+an unique identifier and takes into account a variable amount of parameters.
+Listing reflet: cstr decl ebnf describes the textual format for a constraint signature using the EBNF.</p>
+<div class="myListing"><div class="listing"><p><code>constraint_decl = id "(" params ");</code></p>
+<p><code>id = letter (letter | digit | "_")*;</code></p>
+<p><code>letter = "a" ... "z" | "A" ... "Z";</code></p>
+<p><code>digit = "0" ... "9";</code></p>
+<p><code> </code></p>
+<p><code>params = param ("," param) *;</code></p>
+<p><code>param = id ":" type;</code></p>
+<p><code>type = (VM_t | server_t | number_t | set_t | string_t);</code></p>
+<p><code>VM_t = "VM";</code></p>
+<p><code>server_t = "server";</code></p>
+<p><code>number_t = "number";</code></p>
+<p><code>string_t = "string";</code></p>
+<p><code>set_t = "set&lt;" type "&gt;";</code></p>
+</div>
+<p class="caption"><span class="float-label"><span class="float-name">Listing </span><span class="float-number">3</span>:</span> EBNF definition of a constraint signature</p></div>
+<p>The following signature declares a constraint named <code>foo</code>, that takes as parameters a set of VMs named <code>s1</code>, a set of servers named <code>s2</code>, a number <code>x</code>, and a string <code>y</code>:</p>
+<p><code>foo(s1:set&lt;VM&gt;, s2:set&lt;set&lt;server&gt;&gt;, x:number, y:string)</code></p>
+
+<h3 id="uid467">Usage</h3>
+<p>Constraints deserves to be used to indicate management restrictions. Listing <a href="#4">4</a> describes the textual format for a constraint call using the EBNF.</p>
+<div class="myListing"><div class="listing"><p><code>constraint_ref &amp; id "(" params ");</code></p>
+<p><code>params &amp; param ("," param)*;</code></p>
+<p><code>param &amp; id | set | string;</code></p>
+<p><code>set &amp; { params? };</code></p>
+<p><code> </code></p>
+<p><code>string &amp; """ (letter | digit)* """;</code></p>
+<p><code>id &amp; letter (letter | digit | "_")*;</code></p>
+<p><code>letter &amp; "a" ... "z" | "A" ... "Z";</code></p>
+<p><code>digit &amp; "0" ... "9";</code></p>
+</div>
+<p class="caption"><span class="float-label"><span class="float-name">Listing </span><span class="float-number">4</span>:</span> EBNF definition of a constraint signature</p></div>
+<p>Following example shows a sample usage of the constraint <code>foo</code> declared previously.
+The first argument is a set of 3 elements named <code>VM1</code>,<code>VM2</code>,<code>VM3</code>. From the constraint signature, each of these elements has to be a virtual machine.
+The second parameter is a set of 2 servers that are named <code>N1</code>, and <code>N2</code>.
+The third parameter is the number 5.
+The fourth parameter is the string "bar" :</p>
+<p><code>foo({VM1, VM2, VM3}, {{N1, N2},{N3}}, 5, "bar")</code></p>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

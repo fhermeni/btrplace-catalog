@@ -1,0 +1,58 @@
+% !TEX root =  ../main.tex
+\section{Online}
+
+\subsection{Definition}
+
+\subsubsection{Signature} \cstr{online(s : set<server>)}
+
+The \cstr{online} constraint forces every server in \cstr{s} to be set in the \st{Online} state.
+
+\subsubsection{Usage}
+
+This constraint deserves first the necessity of having servers available to host VMs.
+This constraint is also useful in a context where servers can not be managed, \ie turned off.
+
+\classification{online}{datacenter administrator}{Servers state}{Resource management}
+
+\subsubsection{Example}
+
+\fullVersion{
+\subsection{Model}
+
+The \cstr{online} constraint is modeled in terms of the RPs variable by restricting
+the state variable of each involved server to 1.
+
+\begin{equation*}
+\begin{split}
+\forall N \in \mathcal{N},\ online(N) & \triangleq\\
+&	\forall n_i \in N, n_i^q = 1
+\end{split}
+\end{equation*}
+
+\subsection{Violation detection}
+
+To compute the list of violating elements, it is a necessary to check for each of 
+the involved  server that are still offline. This detection is optimal.
+
+\subsection{Availability}
+
+\subsubsection{In {\btrp}}
+
+The constraint is available in {\btrp} under the name \cstr{offline}. It is
+modeled by instantiated the state variable of each involved server to 0:
+
+\begin{equation*}
+\begin{split}
+\forall N \in \mathcal{N},\ online(N) & \triangleq\\
+&	\forall n_i \in N, eq(n_i^q, 1)
+\end{split}
+\end{equation*}
+}
+
+\subsection{See also}
+\subsubsection{Related constraints}
+\begin{itemize}
+\item \cstrref{offline}: The opposite constraint that is used to force servers to being set in the \st{Offline} state.
+\end{itemize}
+
+\printListOfInheritance{online}

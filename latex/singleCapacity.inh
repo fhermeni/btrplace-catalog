@@ -1,0 +1,4 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{cumulatedCapacity}: \cstr{singleCapacity(ns, nb, r)} \myEquiv \cstr{\tforall n \tin ns, cumulatedCapacity(\{n\}, nb, r)}
+\end{itemize}

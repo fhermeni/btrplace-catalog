@@ -1,0 +1,4 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{among}: \cstr{gather(s)} \myEquiv \cstr{among(s,\allNodes/|\allNodes|)}
+\end{itemize}

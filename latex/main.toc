@@ -1,0 +1,244 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Preface}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Virtualized hosting platforms}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Infrastructure}{8}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Hosting platforms}{8}{subsection.2.1.1}
+\contentsline {subsubsection}{Working nodes}{8}{section*.2}
+\contentsline {subsubsection}{Network}{9}{section*.3}
+\contentsline {subsubsection}{Storage}{9}{section*.5}
+\contentsline {subsubsection}{From server housing to container housing}{10}{section*.6}
+\contentsline {subsection}{\numberline {2.1.2}Virtualized applications}{10}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Hosting platform management}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}VM management}{11}{subsection.2.2.1}
+\contentsline {subsubsection}{Uninstantiated}{11}{section*.9}
+\contentsline {subsubsection}{Waiting}{11}{section*.10}
+\contentsline {subsubsection}{Running}{12}{section*.11}
+\contentsline {subsubsection}{Paused}{12}{section*.12}
+\contentsline {subsubsection}{Suspended}{12}{section*.13}
+\contentsline {subsubsection}{Terminated}{13}{section*.14}
+\contentsline {subsection}{\numberline {2.2.2}Server management}{13}{subsection.2.2.2}
+\contentsline {subsubsection}{Online}{13}{section*.16}
+\contentsline {subsubsection}{Offline}{13}{section*.17}
+\contentsline {section}{\numberline {2.3}Reconfiguration}{13}{section.2.3}
+\contentsline {section}{\numberline {2.4}A sample reconfiguration}{15}{section.2.4}
+\contentsline {section}{\numberline {2.5}Conclusion}{16}{section.2.5}
+\contentsline {chapter}{\numberline {3}Constraints}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Root}{19}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Definition}{19}{subsection.3.1.1}
+\contentsline {subsubsection}{Signature}{19}{section*.23}
+\contentsline {paragraph}{Classification}{19}{section*.24}
+\contentsline {subsubsection}{Usage}{19}{section*.25}
+\contentsline {subsubsection}{Example}{19}{section*.26}
+\contentsline {subsection}{\numberline {3.1.2}See also}{20}{subsection.3.1.2}
+\contentsline {subsubsection}{Related Constraints}{20}{section*.27}
+\contentsline {section}{\numberline {3.2}Ban}{21}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Definition}{21}{subsection.3.2.1}
+\contentsline {subsubsection}{Signature}{21}{section*.28}
+\contentsline {paragraph}{Classification}{21}{section*.29}
+\contentsline {subsubsection}{Usage}{21}{section*.30}
+\contentsline {subsubsection}{Example}{21}{section*.31}
+\contentsline {subsection}{\numberline {3.2.2}See also}{22}{subsection.3.2.2}
+\contentsline {subsubsection}{Related Constraints}{22}{section*.32}
+\contentsline {subsubsection}{Reformulation(s)}{22}{section*.33}
+\contentsline {subsubsection}{Specialization(s)}{22}{section*.34}
+\contentsline {section}{\numberline {3.3}Fence}{23}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Definition}{23}{subsection.3.3.1}
+\contentsline {subsubsection}{Signature}{23}{section*.35}
+\contentsline {paragraph}{Classification}{23}{section*.36}
+\contentsline {subsubsection}{Usage}{23}{section*.37}
+\contentsline {subsubsection}{Example}{24}{section*.38}
+\contentsline {subsection}{\numberline {3.3.2}See also}{24}{subsection.3.3.2}
+\contentsline {subsubsection}{Related Constraints}{24}{section*.39}
+\contentsline {subsubsection}{Reformulation(s)}{24}{section*.40}
+\contentsline {subsubsection}{Specialization(s)}{24}{section*.41}
+\contentsline {section}{\numberline {3.4}Quarantine}{25}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Definition}{25}{subsection.3.4.1}
+\contentsline {subsubsection}{Signature}{25}{section*.42}
+\contentsline {paragraph}{Classification}{25}{section*.43}
+\contentsline {subsubsection}{Usage}{25}{section*.44}
+\contentsline {subsubsection}{Example}{25}{section*.45}
+\contentsline {subsection}{\numberline {3.4.2}See also}{26}{subsection.3.4.2}
+\contentsline {subsubsection}{Related Constraints}{26}{section*.46}
+\contentsline {subsubsection}{Reformulation(s)}{26}{section*.47}
+\contentsline {section}{\numberline {3.5}Among}{27}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Definition}{27}{subsection.3.5.1}
+\contentsline {subsubsection}{Signature}{27}{section*.48}
+\contentsline {paragraph}{Classification}{27}{section*.49}
+\contentsline {subsubsection}{Usage}{27}{section*.50}
+\contentsline {subsubsection}{Example}{27}{section*.51}
+\contentsline {subsection}{\numberline {3.5.2}See also}{28}{subsection.3.5.2}
+\contentsline {subsubsection}{Related Constraints}{28}{section*.52}
+\contentsline {subsubsection}{Reformulation(s)}{28}{section*.53}
+\contentsline {subsubsection}{Specialization(s)}{28}{section*.54}
+\contentsline {section}{\numberline {3.6}Lonely}{29}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Definition}{29}{subsection.3.6.1}
+\contentsline {subsubsection}{Signature}{29}{section*.55}
+\contentsline {paragraph}{Classification}{29}{section*.56}
+\contentsline {subsubsection}{Usage}{29}{section*.57}
+\contentsline {subsubsection}{Example}{29}{section*.58}
+\contentsline {subsection}{\numberline {3.6.2}See also}{30}{subsection.3.6.2}
+\contentsline {subsubsection}{Reformulation(s)}{30}{section*.59}
+\contentsline {section}{\numberline {3.7}Split}{31}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Definition}{31}{subsection.3.7.1}
+\contentsline {subsubsection}{Signature}{31}{section*.60}
+\contentsline {paragraph}{Classification}{31}{section*.61}
+\contentsline {subsubsection}{Usage}{31}{section*.62}
+\contentsline {subsubsection}{Example}{31}{section*.63}
+\contentsline {subsection}{\numberline {3.7.2}See also}{32}{subsection.3.7.2}
+\contentsline {subsubsection}{Related Constraints}{32}{section*.64}
+\contentsline {subsubsection}{Specialization(s)}{32}{section*.65}
+\contentsline {section}{\numberline {3.8}SplitAmong}{33}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Definition}{33}{subsection.3.8.1}
+\contentsline {subsubsection}{Signature}{33}{section*.66}
+\contentsline {paragraph}{Classification}{33}{section*.67}
+\contentsline {subsubsection}{Usage}{33}{section*.68}
+\contentsline {subsubsection}{Example}{33}{section*.69}
+\contentsline {subsection}{\numberline {3.8.2}See also}{34}{subsection.3.8.2}
+\contentsline {subsubsection}{Related Constraints}{34}{section*.70}
+\contentsline {subsubsection}{Specialization(s)}{34}{section*.71}
+\contentsline {section}{\numberline {3.9}Gather}{35}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Definition}{35}{subsection.3.9.1}
+\contentsline {subsubsection}{Signature}{35}{section*.72}
+\contentsline {paragraph}{Classification}{35}{section*.73}
+\contentsline {subsubsection}{Usage}{35}{section*.74}
+\contentsline {subsubsection}{Example}{35}{section*.75}
+\contentsline {subsection}{\numberline {3.9.2}See also}{36}{subsection.3.9.2}
+\contentsline {subsubsection}{Related Constraints}{36}{section*.76}
+\contentsline {subsubsection}{Reformulation(s)}{36}{section*.77}
+\contentsline {section}{\numberline {3.10}Spread}{37}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Definition}{37}{subsection.3.10.1}
+\contentsline {subsubsection}{Signature}{37}{section*.78}
+\contentsline {paragraph}{Classification}{37}{section*.79}
+\contentsline {subsubsection}{Usage}{37}{section*.80}
+\contentsline {subsubsection}{Example}{37}{section*.81}
+\contentsline {subsection}{\numberline {3.10.2}See also}{38}{subsection.3.10.2}
+\contentsline {subsubsection}{Related Constraints}{38}{section*.82}
+\contentsline {section}{\numberline {3.11}LazySpread}{39}{section.3.11}
+\contentsline {subsection}{\numberline {3.11.1}Definition}{39}{subsection.3.11.1}
+\contentsline {subsubsection}{Signature}{39}{section*.83}
+\contentsline {paragraph}{Classification}{39}{section*.84}
+\contentsline {subsubsection}{Usage}{39}{section*.85}
+\contentsline {subsubsection}{Example}{39}{section*.86}
+\contentsline {subsection}{\numberline {3.11.2}See also}{40}{subsection.3.11.2}
+\contentsline {subsubsection}{Related Constraints}{40}{section*.87}
+\contentsline {subsubsection}{Reformulation(s)}{40}{section*.88}
+\contentsline {section}{\numberline {3.12}MostlySpread}{41}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Definition}{41}{subsection.3.12.1}
+\contentsline {subsubsection}{Signature}{41}{section*.89}
+\contentsline {paragraph}{Classification}{41}{section*.90}
+\contentsline {subsubsection}{Usage}{41}{section*.91}
+\contentsline {subsubsection}{Example}{41}{section*.92}
+\contentsline {subsection}{\numberline {3.12.2}See also}{42}{subsection.3.12.2}
+\contentsline {subsubsection}{Related Constraints}{42}{section*.93}
+\contentsline {subsubsection}{Specialization(s)}{42}{section*.94}
+\contentsline {section}{\numberline {3.13}Preserve}{43}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}Definition}{43}{subsection.3.13.1}
+\contentsline {subsubsection}{Signature}{43}{section*.95}
+\contentsline {paragraph}{Classification}{43}{section*.96}
+\contentsline {subsubsection}{Usage}{43}{section*.97}
+\contentsline {subsubsection}{Example}{43}{section*.98}
+\contentsline {subsection}{\numberline {3.13.2}See also}{44}{subsection.3.13.2}
+\contentsline {subsubsection}{Related Constraints}{44}{section*.100}
+\contentsline {section}{\numberline {3.14}Oversubscription}{45}{section.3.14}
+\contentsline {subsection}{\numberline {3.14.1}Definition}{45}{subsection.3.14.1}
+\contentsline {subsubsection}{Signature}{45}{section*.101}
+\contentsline {paragraph}{Classification}{45}{section*.102}
+\contentsline {subsubsection}{Usage}{45}{section*.103}
+\contentsline {subsubsection}{Example}{46}{section*.104}
+\contentsline {subsection}{\numberline {3.14.2}See also}{46}{subsection.3.14.2}
+\contentsline {subsubsection}{Related Constraints}{46}{section*.106}
+\contentsline {section}{\numberline {3.15}CumulatedCapacity}{47}{section.3.15}
+\contentsline {subsection}{\numberline {3.15.1}Definition}{47}{subsection.3.15.1}
+\contentsline {subsubsection}{Signature}{47}{section*.107}
+\contentsline {paragraph}{Classification}{47}{section*.108}
+\contentsline {subsubsection}{Usage}{47}{section*.109}
+\contentsline {subsubsection}{Example}{47}{section*.110}
+\contentsline {subsection}{\numberline {3.15.2}See also}{48}{subsection.3.15.2}
+\contentsline {subsubsection}{Related Constraints}{48}{section*.112}
+\contentsline {subsubsection}{Specialization(s)}{48}{section*.113}
+\contentsline {section}{\numberline {3.16}SingleCapacity}{49}{section.3.16}
+\contentsline {subsection}{\numberline {3.16.1}Definition}{49}{subsection.3.16.1}
+\contentsline {subsubsection}{Signature}{49}{section*.114}
+\contentsline {paragraph}{Classification}{49}{section*.115}
+\contentsline {subsubsection}{Usage}{49}{section*.116}
+\contentsline {subsubsection}{Example}{50}{section*.117}
+\contentsline {subsection}{\numberline {3.16.2}See also}{50}{subsection.3.16.2}
+\contentsline {subsubsection}{Related Constraints}{50}{section*.119}
+\contentsline {subsubsection}{Reformulation(s)}{50}{section*.120}
+\contentsline {section}{\numberline {3.17}MinSpareResources}{51}{section.3.17}
+\contentsline {subsection}{\numberline {3.17.1}Definition}{51}{subsection.3.17.1}
+\contentsline {subsubsection}{Signature}{51}{section*.121}
+\contentsline {paragraph}{Classification}{51}{section*.122}
+\contentsline {subsubsection}{Usage}{51}{section*.123}
+\contentsline {subsubsection}{Example}{51}{section*.124}
+\contentsline {subsection}{\numberline {3.17.2}See also}{52}{subsection.3.17.2}
+\contentsline {subsubsection}{Related Constraints}{52}{section*.126}
+\contentsline {section}{\numberline {3.18}MaxSpareResources}{53}{section.3.18}
+\contentsline {subsection}{\numberline {3.18.1}Definition}{53}{subsection.3.18.1}
+\contentsline {subsubsection}{Signature}{53}{section*.127}
+\contentsline {paragraph}{Classification}{53}{section*.128}
+\contentsline {subsubsection}{Usage}{53}{section*.129}
+\contentsline {subsubsection}{Example}{53}{section*.130}
+\contentsline {subsection}{\numberline {3.18.2}See also}{54}{subsection.3.18.2}
+\contentsline {subsubsection}{Related Constraints}{54}{section*.132}
+\contentsline {section}{\numberline {3.19}MaxOnlines}{55}{section.3.19}
+\contentsline {subsection}{\numberline {3.19.1}Definition}{55}{subsection.3.19.1}
+\contentsline {subsubsection}{Signature}{55}{section*.133}
+\contentsline {paragraph}{Classification}{55}{section*.134}
+\contentsline {subsubsection}{Usage}{55}{section*.135}
+\contentsline {subsubsection}{Example}{55}{section*.136}
+\contentsline {subsection}{\numberline {3.19.2}See also}{56}{subsection.3.19.2}
+\contentsline {subsubsection}{Related Constraints}{56}{section*.138}
+\contentsline {section}{\numberline {3.20}Offline}{57}{section.3.20}
+\contentsline {subsection}{\numberline {3.20.1}Definition}{57}{subsection.3.20.1}
+\contentsline {subsubsection}{Signature}{57}{section*.139}
+\contentsline {subsubsection}{Usage}{57}{section*.140}
+\contentsline {paragraph}{Classification}{57}{section*.141}
+\contentsline {subsubsection}{Example}{57}{section*.142}
+\contentsline {subsection}{\numberline {3.20.2}See also}{57}{subsection.3.20.2}
+\contentsline {subsubsection}{Related constraints}{57}{section*.143}
+\contentsline {section}{\numberline {3.21}Online}{58}{section.3.21}
+\contentsline {subsection}{\numberline {3.21.1}Definition}{58}{subsection.3.21.1}
+\contentsline {subsubsection}{Signature}{58}{section*.144}
+\contentsline {subsubsection}{Usage}{58}{section*.145}
+\contentsline {paragraph}{Classification}{58}{section*.146}
+\contentsline {subsubsection}{Example}{58}{section*.147}
+\contentsline {subsection}{\numberline {3.21.2}See also}{58}{subsection.3.21.2}
+\contentsline {subsubsection}{Related constraints}{58}{section*.148}
+\contentsline {chapter}{\numberline {4}Notations}{59}{chapter.4}
+\contentsline {section}{\numberline {4.1}Describing a configuration}{59}{section.4.1}
+\contentsline {section}{\numberline {4.2}Describing a constraint}{60}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Declaration}{60}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Usage}{60}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {5}Constraint Reformulation}{62}{chapter.5}
+\contentsline {section}{\numberline {5.1}Inheritance Graph}{62}{section.5.1}
+\contentsline {section}{\numberline {5.2}Rewriting rules}{62}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}SplitAmong}{63}{subsection.5.2.1}
+\contentsline {subsubsection}{Specialization(s)}{63}{section*.150}
+\contentsline {subsection}{\numberline {5.2.2}Lonely}{63}{subsection.5.2.2}
+\contentsline {subsubsection}{Reformulation(s)}{63}{section*.151}
+\contentsline {subsection}{\numberline {5.2.3}MostlySpread}{63}{subsection.5.2.3}
+\contentsline {subsubsection}{Specialization(s)}{63}{section*.152}
+\contentsline {subsection}{\numberline {5.2.4}Quarantine}{63}{subsection.5.2.4}
+\contentsline {subsubsection}{Reformulation(s)}{63}{section*.153}
+\contentsline {subsection}{\numberline {5.2.5}Split}{63}{subsection.5.2.5}
+\contentsline {subsubsection}{Specialization(s)}{63}{section*.154}
+\contentsline {subsection}{\numberline {5.2.6}LazySpread}{64}{subsection.5.2.6}
+\contentsline {subsubsection}{Reformulation(s)}{64}{section*.155}
+\contentsline {subsection}{\numberline {5.2.7}Ban}{64}{subsection.5.2.7}
+\contentsline {subsubsection}{Reformulation(s)}{64}{section*.156}
+\contentsline {subsubsection}{Specialization(s)}{64}{section*.157}
+\contentsline {subsection}{\numberline {5.2.8}SingleCapacity}{64}{subsection.5.2.8}
+\contentsline {subsubsection}{Reformulation(s)}{64}{section*.158}
+\contentsline {subsection}{\numberline {5.2.9}Fence}{64}{subsection.5.2.9}
+\contentsline {subsubsection}{Reformulation(s)}{64}{section*.159}
+\contentsline {subsubsection}{Specialization(s)}{64}{section*.160}
+\contentsline {subsection}{\numberline {5.2.10}Among}{64}{subsection.5.2.10}
+\contentsline {subsubsection}{Reformulation(s)}{64}{section*.161}
+\contentsline {subsubsection}{Specialization(s)}{64}{section*.162}
+\contentsline {subsection}{\numberline {5.2.11}Gather}{64}{subsection.5.2.11}
+\contentsline {subsubsection}{Reformulation(s)}{64}{section*.163}
+\contentsline {subsection}{\numberline {5.2.12}CumulatedCapacity}{65}{subsection.5.2.12}
+\contentsline {subsubsection}{Specialization(s)}{65}{section*.164}
+\contentsline {chapter}{Constraints Index}{66}{section*.165}
+\contentsline {chapter}{References}{68}{section*.166}

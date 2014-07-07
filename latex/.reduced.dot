@@ -1,0 +1,17 @@
+digraph g {
+	splitAmong -> lazySpread;
+	splitAmong -> among;
+	mostlySpread -> lazySpread;
+	split -> lonely;
+	split -> lazySpread;
+	ban -> fence;
+	fence -> ban;
+	fence_PLUS_root	 [label="+",
+		shape=diamond];
+	fence -> fence_PLUS_root;
+	among -> ban;
+	among -> gather;
+	cumulatedCapacity -> singleCapacity;
+	fence_PLUS_root -> quarantine;
+	root -> fence_PLUS_root;
+}

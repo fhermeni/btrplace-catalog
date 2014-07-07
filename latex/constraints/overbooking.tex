@@ -1,0 +1,24 @@
+% !TEX root =  ../main.tex
+\section{Overbooking}
+
+\subsection{Definition}
+
+\paragraph{Signature} \cstr{overbooking(s : set<server>, r : string, x : number)}
+
+The \cstr{overbooking} constraint ensures each of the online servers in \cstr{s} overbooks the
+resource of type \cstr{r} by a factor of at most \cstr{x}.
+Servers not in the \st{Online} state and VMs not in the \st{Running} state are ignored.
+
+\paragraph{Usage}
+
+This constraints allow the datacenter administrator to control the aggressivity of a non-conservative resource allocation policy. Typically, each VM has a certain amount of virtual CPUs (VCPU) that have to be
+pinned to the physical CPUs of the allotted server (PCPU). As a VM does not require to consume a full
+PCPU at every moment, a common practice in industry consists in allocating on average at most 2 VCPU per PCPU.~\cite{vmi} This non-conservative allocation policy can be expressed by the datacenter administrator using one
+\cstr{overbooking} constraint.
+
+
+\classification{overbooking}{datacenter administrator}{Resource allocation}{resource management}
+
+\paragraph{Example}
+
+\printListOfInheritance{overbooking}

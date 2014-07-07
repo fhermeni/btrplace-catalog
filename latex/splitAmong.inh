@@ -1,0 +1,5 @@
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{lazySpread}: \cstr{splitAmong(s/\card{s},\allNodes/\card{\allNodes})} \myEquiv \cstr{lazySpread(s1)}
+\item To \cstrref{among}: \cstr{splitAmong(\{vs1\},ns1)} \myEquiv \cstr{among(vs1, ns1)}
+\end{itemize}

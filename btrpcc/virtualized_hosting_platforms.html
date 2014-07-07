@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="chapter-toc"><div class="title">Summary</div><ul class="level-1"><li><a href="#uid1">Infrastructure</a><ul class="level-2"><li><a href="#uid2">Hosting platforms</a></li><li><a href="#uid8">Virtualized applications</a></li></ul></li><li><a href="#uid10">Hosting platform management</a><ul class="level-2"><li><a href="#uid11">VM management</a></li><li><a href="#uid19">Server management</a></li></ul></li><li><a href="#uid23">Reconfiguration</a></li><li><a href="#uid26">A sample reconfiguration</a></li><li><a href="#uid31">Conclusion</a></li></ul></div><h1>Virtualized hosting platforms</h1>
+<p>Over the last 20 years, the design of platforms dedicated to the execution of parallel and distributed applications has evolve from monolithic supercomputers to a flexible aggregation of interconnected servers
+made up with commodity hardware. In 1994, the NASA deploy a 16-nodes clusters called Beowulf [<a href="references.html#bid11">41</a>] to perform physical simulation and data acquisition. Nodes, having one 100 MHz processor each, were connected through a 10 Mb ethernet network.</p>
+<p>Contrary to supercomputers, clusters are made for being updated. It is then possible to increase its performance by adding additional nodes. They are also cheaper to build. As an example,Barroso et al. [<a href="references.html#bid12">8</a>] indicate that in 2003, the cost of a 88 nodes cluster, each having two 2 GHz Intel Xeon processors, 2 Gb RAM and a 80 Gb of disk storage is 8 times cheaper than a single server having 8 processors, 64 GB RAM and 8 To of disk storage. Clusters appeared then to be less expensive and provide a better cost/performance ratio. Over the years, this design became a reference for high performance computing [<a href="references.html#bid13">44</a>] and hosting platforms.</p>
+<p>Orientation service, utilization variable, coût d'exploitation. Amazon</p>
+<p>on demand computing, [<a href="references.html#bid14">13</a>]</p>
+<p>cloud computing, testbeds</p>
+<h2 id="uid1">Infrastructure</h2>
+<h3 id="uid2">Hosting platforms</h3>
+<p>A hosting platform are made up using multiple interconnected servers that are used to host virtual machines.
+In this section, we present the typical infrastructure of an hosting platform and its usage to run virtualized applications.</p>
+<h4 id="uid3">Working nodes</h4>
+<p>Working nodes are dedicated to the hosting of the users application. In a virtualized hosting platform,
+each working node runs an hypervisor to allow to run simultaneously multiple operating systems called virtual machines. In practice, an hypervisor hides to the VMs the physical characteristics of the server and provide to each VM the illusion of having a real dedicated physical machine. The VM administrator can run its own operating system and applications. The hypervisor is then responsible of ensuring the isolation between the VMs and sharing amount them its resources.</p>
+<p>It currently exists different hypervisors for hosting platforms, e.g.Xen [<a href="references.html#bid15">7</a>], KVM [<a href="references.html#bid16">29</a>], VMWare ESX [<a href="references.html#bid17">39</a>], or Microsoft Hyper-V [<a href="references.html#bid18">32</a>]. Each differs by its features, performance or management capabilities.
+Each server provides a part of its resources to the VMs it hosts. It typically shares among the VMs the CPU, the network, the disk and the memory resources. It is possible to control this sharing and dedicate specific resources such as CPUs or core to the VMs. It is also possible to bind to VMs, specific hardware that is available from the server. Typically PCI expansion cards or disk partition.</p>
+<p>Rappeler ressource partage fixe, partage floue (cpu et mémoire)</p>
+<p>partage mémoire [<a href="references.html#bid19">1</a>], [<a href="references.html#bid20">1</a>]</p>
+<p>The resource sharing policy is decided when the VM or the hypervisor is configured.</p>
+<p>The heterogeneity between the servers in a datacenter exists but it is limited. In practice, at construction, the datacenter is designed around one specific type of server. However, when the datacenter is upgraded to increase its hosting capacity, new servers are acquired. In this situation, the new servers hardware differ from the previous one to provide a more competing performance.</p>
+
+<h4 id="uid4">Network</h4>
+<p>The current practice in network design is to rely on a hierarchical network called fat tree [<a href="references.html#bid21">30</a>]. Servers are connected to edge switches using gigabit ethernet links [<a href="references.html#bid22">18</a>].
+These edge switches are then connected to aggregation switches. Finally, the aggregation switches are connected to the core switches.
+Links between the switches are usually an aggregation of multiple gigabit or 10-gigabit ethernet links [<a href="references.html#bid23">16</a>] to provide a bisection bandwidth as high as possible.
+Usually, the network is fully replicated to support the loss of switches.
+Figure <a href="#1">1</a> depicts a replicated fat tree with one level of aggregation switches.</p>
+<p>In a fat tree topology, the bisection bandwidth is usually not provisioned enough to support a traffic at full speed and the network latency between the nodes is not constant all over the datacenter.
+The bisection bandwidth limitation is explained in a fat tree by the unit cost of the network equipments but also the limitation of the current network technologies that can not provide to modular switches a non-blocking bandwidth.
+The non-constant latency is explained by the number of network hops between nodes that differ depending on their relative position.
+Recently, Al-Fares et al. [<a href="references.html#bid24">1</a>] proposed a modification of the traditional fat tree design to provide a non-blocking bisection bandwidth while using commodity switches. In addition, Greenberg et al. [<a href="references.html#bid25">20</a>] proposed an alternative network design which guarantee a non-blocking bisection bandwidth, while offering a constant latency between the servers.</p>
+<div class="figure"><a href="img/fat_tree.png" title="Click to enlarge"><img src="img/fat_tree.png" width="427.0pt" alt="img/fat_tree" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">1</span>:</span> A fat-tree network topology with redundant links for fault tolerance</p></div>
+
+<h4 id="uid6">Storage</h4>
+<p>SAN, or local disk</p>
+<p>One or multiple DFS, available to part of the infrastructure</p>
+
+<h4 id="uid7">From server housing to container housing</h4>
+<p>A recent trend in datacenter design relies on the usage of shipping containers to embed the servers [<a href="references.html#bid26">23</a>]. In practice, a container can be considered as a datacenter. It may embeds
+thousands of servers with their network [<a href="references.html#bid27">21</a>], their storage and their cooling systems.
+Shipping containers of servers are then currently used as a building block for large scale datacenters.
+Containers are first very energy-efficient while they allow to expand the hosting capacity of a datacenter easily by acquiring and plugin new containers when needed.</p>
+<p>Hosting platforms: clouds (amazon [<a href="references.html#bid5">2</a>], rackspace [<a href="references.html#bid28">37</a>], azure [<a href="references.html#bid29">5</a>]), testbeds such as Emulab [<a href="references.html#bid30">27</a>] or Grid'5000 [<a href="references.html#bid31">10</a>].</p>
+
+<h3 id="uid8">Virtualized applications</h3>
+<p>User want to have its application running into the platform</p>
+<p>Either instantiate an existing template that is already customized for the hosting
+platform. As an example Amazon EC2 has a list of pre-made instances</p>
+<p>otherwise, create from scratch.
+Justify replication: elastic computing, absord load</p>
+<p>Figure <a href="#2">2</a> illustrates a typical 3-tier HA Web application.
+The first tier is composed of 3 VMs, each running one Apache HTTP server [<a href="references.html#bid32">3</a>].
+The second tier is made up with 2 VMs, each running one Apache Tomcat instance [<a href="references.html#bid33">4</a>].
+The third tier is made up with 2 VMs, each running one instance of the MySQL database [<a href="references.html#bid34">33</a>].
+Each instance of Apache HTTP and Apache Tomcat includes a load balancer to spread out the requests
+associated to servlets or the database respectively.</p>
+<p>The Apache services in tier 1 and the Tomcat services in tier 2
+are stateless: all the handled requests are independent transactions
+and no synchronization of their state is required. On the other hand,
+tier 3 runs a replicated MySQL database, which is stateful:
+transactions that modify the data must be propagated from one VM
+hosting a replica of tier 3 to the others, to maintain a globally
+consistent state.
+In this setting, the application administrator has three expectations.
+First, the VMs must be running on servers having enough resources to make the services
+work at peak level.
+Second, the VM replicas must be running on distinct servers to provide the awaited
+fault tolerance to hardware failure.
+Finally, the VMs in the Tiers 3 must be running on servers connected by a low latency
+medium that reduce the overhead of the databases synchronization protocol.</p>
+<div class="figure"><a href="img/3tiers.png" title="Click to enlarge"><img src="img/3tiers.png" width="341.6013pt" alt="img/3tiers" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">2</span>:</span> Sample architecture for a Highly-Available web service.</p></div>
+
+<h2 id="uid10">Hosting platform management</h2>
+<h3 id="uid11">VM management</h3>
+<p>Through its lifetime on the platform, the state of a virtual machine is subject to change during a
+reconfiguration process. Figure <a href="#3">3</a> depicts as a finite state automaton the six
+possible states for a virtual machines and the action to apply to perform the transition between one
+state to another.</p>
+<div class="figure"><a href="img/VM_lifecycle.png" title="Click to enlarge"><img src="img/VM_lifecycle.png" width="427.0pt" alt="img/VM_lifecycle" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">3</span>:</span> Lifecycle of a virtual machine</p></div>
+<h4 id="uid13">Uninstantiated</h4>
+<p>The <code>Uninstantiated</code> state is the initial state for any virtual machine. At this stage, the virtual machine is not prepared to be deployed on the servers.
+The action instantiate leads to prepare the virtual machine for the hosting platforms. This may imply several platform dependent operations such as the creation of configuration files to describe the virtual machine, but also the preparation of its disk image from a template or from scratch.
+At the end of the instantiate action, the virtual machine lies in the <code>Waiting</code> state.</p>
+
+<h4 id="uid14">Waiting</h4>
+<p>The <code>Waiting</code> state denotes a virtual machine that has been configured to be deployed on a server.
+The action run will then deploy the virtual machine on a given server. The virtual machine will be booted and will start to consume resources. The action is not necessarily synchronous and may immediately end once the booting process of the virtual machine is engaged despite it is not available to its owner.
+At the end of the action, the virtual machine lies in the <code>Running</code> state.</p>
+
+<h4 id="uid15">Running</h4>
+<p>The <code>Running</code> state denotes a virtual machine that is running on a server. Several actions are then
+possible to manipulate the state or the location of the virtual machine.</p>
+<p>The relocate action is responsible of relocating of the virtual machine to another server.
+Such an action can be achieved in different manners, depending on the hypervisors capabilities, the virtual machine specification and the software it embeds.
+Live migration [<a href="references.html#bid35">12</a>], [<a href="references.html#bid36">34</a>] is the most known technique to relocate a running virtual machine. It consists in moving the virtual machine to a given server with a negligible downtime. In practice, the virtual machine configuration, context and memory are copied in background to an inactive virtual machine
+on the destination server. Once the state of the running virtual machine is mostly coherent with the state of the inactive virtual machine on the destination server, the running virtual machine is suspended to finalize the transfer and the virtual machine on the destination server is activated. The original virtual machine is finally destroyed.
+Cold migration is another solution where the virtual machine on the source server is set inactive before performing the transfer.
+Finally, if the virtual machine hosts a replicated service, it is also possible to simply instantiate a new virtual machine on the destination server then stop the original virtual machine once the new one is booted.
+Such an operation is however more intrusive as it implies to know the embedded softwares.</p>
+<p>The pause action blocks the virtual CPUs allocated to the virtual machine. At the end of this action, the virtual machine lies in the <code>Paused</code> state.</p>
+<p>The suspend action suspends the virtual machine on a disk. The virtual CPUs allocated to the virtual machine are paused and its memory is copied on the disk. At the end of this action, the virtual machine lies in the <code>Suspended</code> state.</p>
+<p>The stop action shutdown a virtual machine gracefully in a similar way a computer is turned off. At the end of the action, the virtual machine is back into the <code>Waiting</code> state and is supposed to be re-used.</p>
+
+<h4 id="uid16">Paused</h4>
+<p>The <code>Paused</code> state indicates the virtual machine is suspended into the server memory. The virtual machine memory is still lying on its hosting server memory but its virtual CPUs have been blocked. The virtual machine is then not available to its administrator. The unpause action moves the virtual machine back into the <code>Running</code> state by unblocking its virtual CPUs.</p>
+
+<h4 id="uid17">Suspended</h4>
+<p>The <code>Suspended</code> state indicates the virtual machine is suspended into a disk. A consistent image
+of the VM memory and state has been stored on a disk. The virtual machine no longer consumes any physical resources except disk storage. The resume action moves the virtual machine back into the <code>Running</code> state by restoring its memory and its state from the disk image.</p>
+
+<h4 id="uid18">Terminated</h4>
+<p>The destroy action can be used from the states <code>Running</code>, <code>Suspended</code>, or <code>Paused</code> to set a virtual machine in the <code>Terminated</code> state. The action brutally stops the virtual machine. This corresponds to a hard shutdown on a computer when it is powered off instantly. As the virtual machine has been stopped brutally, its disk image may be corrupted. It is then not sure the virtual machine can be restarted.
+We then consider the <code>Terminated</code> state as a terminal state.</p>
+
+<h3 id="uid19">Server management</h3>
+<p>Similar to a virtual machine, a hosting server also has its state updated through actions during its lifecycle. Figure <a href="#4">4</a> depicts as a finite state automaton, the two possible states for a server
+and the action to apply to perform the transition between one state to another.</p>
+<div class="figure"><a href="img/server_lifecycle.png" title="Click to enlarge"><img src="img/server_lifecycle.png" width="125.19194pt" alt="img/server_lifecycle" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">4</span>:</span> Lifecycle of a server</p></div>
+<h4 id="uid21">Online</h4>
+<p>The <code>Online</code> state indicates the server is available to the hosting platform and may host virtual machines. The halt action is responsible of setting the server in the <code>Offline</code> state.</p>
+
+<h4 id="uid22">Offline</h4>
+<p>The <code>Offline</code> state indicates the server is not directly available to the hosting platforms. It can be made available using the action start. The <code>Offline</code> state can be provided using different approaches. The traditional approach is to turn the server off. The action start will then boot it.
+It may also be convenient to suspend the server into disk or into RAM. Such a physical state has the same properties with regards to the external users as it is not directly available to them. However, restoring a server from a suspend-to-RAM or suspend-to-disk state may provide a faster response time with regards to a traditional unpowered state.</p>
+
+<h2 id="uid23">Reconfiguration</h2>
+<p>Occurs when actions have to be executed. Typically motivated by the arrival, departure of VMs,
+server maintenance or SLA violation fix or overal usage improvement.</p>
+<p>A reconfiguration occurs when the current platform configuration does not meet the tenants or the platform
+administrator expectations. During a reconfiguration, several management operations
+are performed to put back the hosting platform into a viable configuration. These operations
+typically manipulate the virtual machines' state or placement, their resource allocation, or the servers' state.</p>
+<p>In this chapter, we describe the principles of a reconfiguration process.
+In a first Section, we describe the management actions that can be performed during a reconfiguration and
+their impact on the servers and the virtual machines.
+In a second Section, we discuss about the necessity of scheduling the action execution to ensure
+the reliability of the reconfiguration process.
+Finally, we present a sample reconfiguration.</p>
+<p>The action to execute during a reconfiguration process manipulate the virtual machines and the servers' states and the allocation of the servers resources.</p>
+<p>First, any action on a virtual machine is exclusive as it impacts either it state or its location. In this setting, to operate on a virtual machine, the virtual machine must be in a state and no actions must already be pending. In addition, performing an action on a virtual machine alter the resource offered by its hosting server in two ways. In practice, an action may liberate or consume some resources on the hosting server. Table <a href="#1">1</a> details this impact per action.</p>
+<div class="table"><table><tr><td>Action</td>
+<td>Liberating</td>
+<td>Consuming</td>
+</tr><tr><td>instantiate</td>
+<td></td>
+<td></td>
+</tr><tr><td>run</td>
+<td></td>
+<td></td>
+</tr><tr><td>relocate</td>
+<td></td>
+<td></td>
+</tr><tr><td>destroy</td>
+<td></td>
+<td></td>
+</tr><tr><td>suspend</td>
+<td></td>
+<td></td>
+</tr><tr><td>resume</td>
+<td></td>
+<td></td>
+</tr><tr><td>pause</td>
+<td></td>
+<td></td>
+</tr><tr><td>unpause</td>
+<td></td>
+<td></td>
+</tr></table>
+<p class="caption"><span class="float-label"><span class="float-name">table </span><span class="float-number">1</span>:</span> Impact on actions related to a virtual machine on its hosting server</p></div>
+<p>The run and the resume actions are similar in terms of resource occupation. Indeed, in both situations, the manipulated virtual machine was not consuming any resources and once the action started, the virtual machine starts consuming resources on its hosting server.
+The suspend, the stop, and the destroy actions are also similar. Indeed, the manipulated virtual machine was running on the server. Once the action executed, the virtual machine is no longer running and all the allocated resources are freed.
+The pause action liberates only a part of the resources allocated to the manipulated virtual machine. In practice, every resources except the memory are liberated. The unease action
+makes then the virtual machine consumes all other resources again.
+Finally, the relocate action is both an action that liberate and consume resources. Indeed, once the action executed, the virtual machine is running on another server. In this situation, the resources that was consumed on the origin server were liberated while the virtual machine consumes now resources on its new host.</p>
+<p>Actions related on the management of a server also impacts the resources available to the virtual machine. Table <a href="#2">2</a> details this impact for every action.
+The start actions makes the server online and potentially available to host virtual machine. This action liberates then the resources that was busy due to the non-availability of the server. On the opposite, the action halt makes the server offline so, consumes every resources on the server.</p>
+<div class="table"><table><tr><td>Action</td>
+<td>Liberating</td>
+<td>Consuming</td>
+</tr><tr><td>start</td>
+<td></td>
+<td></td>
+</tr><tr><td>halt</td>
+<td></td>
+<td></td>
+</tr></table>
+<p class="caption"><span class="float-label"><span class="float-name">table </span><span class="float-number">2</span>:</span> Impact on actions related to a virtual machine on its hosting server</p></div>
+<p>Consuming actions have then preconditions to be executed. These preconditions consists in having enough free resource on the target server to perform the action. Typically, enough memory, CPU, disk space, etc..
+Aside, actions on virtual machines and servers are closely related as action related on a virtual machine hosted on a server requires to have the involved servers online. While turning off a server requires to have this server not hosting any virtual machine.</p>
+<p>As a result, actions may have to be planned depending on their resource profile. Scheduling the
+So, in addition to the state of the virtual machines, the servers, the placement of the virtual machines on the servers, and the resource allocation, the temporality of the actions must be considered to ensure the reliability of the reconfiguration process.</p>
+
+<h2 id="uid26">A sample reconfiguration</h2>
+<p>Let's consider a hosting platform of 4 servers (N1 to N4) managing a total of 6 virtual machines (VM1 to VM6). Figure <a href="#5">5</a> depicts an initial and a destination configuration
+to reach. Initially, virtual machines VM1 and VM2 are in the <code>running</code> state on the server N1. The virtual machines VM3, VM5, and VM6 are in the <code>Running</code> station servers N2, N3, and N4, respectively. Finally, the virtual machine VM4 is in the <code>Waiting</code> state. In we consider that 1) every virtual machine must have an access to enough uCPU and memory capacity, 2) VM4 must be in the <code>Running</code> state, and 3) N3 must be in the <code>Offline</code> state, then this configuration is not viable.</p>
+<div class="figure"><a href="img/sample_reconfiguration2.png" title="Click to enlarge"><img src="img/sample_reconfiguration2.png" width="427.0pt" alt="img/sample_reconfiguration2" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">5</span>:</span> A reconfiguration between a non-viable configuration and a destination configuration</p></div>
+<p>The destination configuration pictured on the right satisfies every prerequisite. One possible reconfiguration process to achieve the transition between the source and the destination configuration
+consists to execute 4 actions. N3 has to be halted, VM4 must run on N1, VM2 and VM6 must be relocated to N2 and N4 respectively.
+However, it is not possible to execute these actions in any order. As an example, it is not possible to
+execute the halt action on N3 until VM6 is away or to run VM4 on N1 before relocating VM4 to N2 as their is no enough free resources at this point.
+Figure <a href="#2.6">2.6</a>. depicts a possible event-oriented reconfiguration plan to ensure the termination of every actions. At startup, it is possible to relocate VM2 and VM6 in parallel. Once VM6 is running on N4, then it is possible to halt N3. Finally, once VM2 is running on N2, then VM4 can be deployed on N1.</p>
+<div class="reconfPlan"><table class="event-plan"><tr><td>Ø</td><td class="post"> relocate(VM2) &amp; relocate(VM6)</td></tr><tr><td>!relocate(VM6)</td><td class="post"> halt(N3)</td></tr><tr><td>!relocate(VM2)</td><td class="post"> run(VM4)</td></tr></table><p class="caption"><span class="float-label"><span class="float-name">Figure </span><span class="float-number">2.6</span>:</span> Event-based reconfiguration plan that ensure the termination of the reconfiguration process
+depicted in Figure <a href="#5">5</a>.</p></div>
+<p>Another solution to express sequences of actions in a reconfiguration plan consists in providing
+a theoretical duration for each each then computing a actions schedule.
+Table <a href="#3">3</a> shows an estimated duration for each action composing
+the reconfiguration process in Figure <a href="#5">5</a>.
+Table <a href="#4">4</a> depicts then a timer-based reconfiguration plan.
+<b>TODO: From a theoretical timer-based rp to a reliable practical one.</b></p>
+<div class="table"><table><tr><td>relocate(VM2)</td>
+<td>0'02</td>
+</tr><tr><td>relocate(VM6)</td>
+<td>0'06</td>
+</tr><tr><td>run(VM4)</td>
+<td>0'06</td>
+</tr><tr><td>halt(N3)</td>
+<td>0'06</td>
+</tr></table>
+<p class="caption"><span class="float-label"><span class="float-name">table </span><span class="float-number">3</span>:</span> Estimated actions duration</p></div>
+<div class="table"><table><tr><td>Start</td>
+<td>End</td>
+<td>Action</td>
+</tr><tr><td>0'00</td>
+<td>0'02</td>
+<td>relocate(VM2)</td>
+</tr><tr><td>0'00</td>
+<td>0'05</td>
+<td>relocate(VM6)</td>
+</tr><tr><td>0'02</td>
+<td>0'08</td>
+<td>run(VM4)</td>
+</tr><tr><td>0'05</td>
+<td>0'11</td>
+<td>halt(N3)</td>
+</tr></table>
+
+<p class="caption"><span class="float-label"><span class="float-name">table </span><span class="float-number">4</span>:</span> Timer-based reconfiguration plan that ensure the termination of the reconfiguration process depicted in Figure <a href="#5">5</a>.</p></div>
+
+<h2 id="uid31">Conclusion</h2>
+<p>Reconfiguration process, act on the state of the virtual machine, its resource allocation, and its placement. Also acts on the servers state.</p>
+<p>Several actions, to be feasible, have preconditions related to the state of the manipulated and the involved elements but also preconditions related to the available resources on the server.</p>
+<p>The model describing a customizable reconfiguration problem must then provides these bases to be able to be customized enough. In the next chapter, we then present a mathematical model to specify
+a reconfiguration process.</p>
+<p>Principles</p>
+<p>Next:
+A formal model to represent a reconfiguration
+late amount of constraints, leaded by technology innovation, application type, platform capabilities, trends</p>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

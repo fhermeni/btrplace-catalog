@@ -1,0 +1,106 @@
+% !TEX root =  main.tex
+\chapter{Preface}
+
+A joint effort between academics and industrial to homogenize hosting platform usage.
+Virtual Machine descriptor~\cite{OVF}
+
+DMTF~\cite{DMTF}, 
+OCCI~\cite{OCCI}
+CDMI~\cite{CDMI}
+Datacenters provide through virtualization, platforms of choice to host a large range
+of applications.
+%
+To perform a deployment, each application administrator embeds his application into
+Virtual Machines (VMs) that are placed by the VM manager on the datacenter servers.
+In addition to the VMs, the application administrator provides through a Service
+Level Agreement (SLA), his concerns in terms of VMs management. 
+The VM manager must then place every applications' VM, according
+to their SLA, to satisfy their  expectations in terms of security, availability, or performance.
+%
+Placement requirements are subjects to evolution over the time and new expectations
+emerge regularly depending on the applications' domain, computer science trends, or new technologies.
+%
+The VM manager should then support these evolutions as soon as possible to keep
+being suitable to host a large range of applications with their particular placement requirements.
+
+Traditional VM managers such as VMWare DRS~\cite{DRS}, Amazon EC2~\cite{amazon} are not
+designed for extensibility.
+When new needs emerge, they have to modify their placement algorithm and change their application
+interface.
+On the other side, Flexible VM managers~\cite{bin-icdcs2011,harper-dcdv2011,hermenier-cp2011,cope-socc2011} argue for proactive approaches. In addition to a list of already supported
+placement constraints, they allow third party developers to implement their own placement constraints
+that can be plugged into the VM manager.
+%
+As an example, {\btrp} provided a first library of 12 placement constraints to express dependability
+requirement and the Fit4Green projects~\cite{f4g} extended it internally to make {\btrp} able to
+address power saving and hardware requirements concerns.
+
+In practice, the variety of the supported constraints 
+
+Required expertise
+-> several constraints may lead to the same result in terms of placement. However, depending
+on the context and their use, their efficiency may be different (unjustified scalability degradation,
+
+proposed constraints and the development of new constraints require
+a certain expertise for being fully effective. As an example, several combination of constraints
+may lead to the same result however, each constraint may have a specific domain or scope which make it particularly suitable in a specific context. As a result, their usage may lead to unexpected results or may limit the VM manager scalability due to an inappropriate usage.
+%
+The same situation may occur when developers implement a new constraint to fulfill a lack in a VM manager. The lack of knowledge about the possible optimization techniques or a miss-understood
+of the real constraints expectation and behavior may result in a not fully effective and reusable constraint.
+
+
+In this paper, we arguing for a catalog 
+We provide through {\btrp} an flexible virtual machines manager for datacenters to
+address applications and datacenter administrators expectations in terms of placement constraints.
+At the first stage, it allows users to pick up among the available constraints in its library, those who
+match placement requirements.
+%
+
+Standard software documentation is not enough.
+Several solutions are possible to express the same requirements but they are not redundant as they differ in their performance in particular context. So the administrators must be able to understand relationships between constraints. Aside, they have to be able to choose the right constraints when a problem is not stated exactly in the documentation. In this situation, the administrator background may be misleading and the demonstration of the constraint usage in several contexts is required.
+
+-> have to 
+
+Potential problems:
+
+-> miss understanding of existing constraints characteristics.
+   several constraints  may appear at first sight to be suitable to cover a specific requirement but a lack of knowledge or informations may lead to a non-expected result or poor performance if the choosed constraints are not the most efficient approach to handle the requirements.
+       ex: 1 globalCapacity vs. n singleCapacity
+       ex: 1 among constraint with only 1 group of nodes -> choose a fence constraint
+
+-> users have requirements that are thighly coupled with their own use case.
+   This lack of perspective may mislead the users from the real requirements they have to address but also let them ignore existing solutions to problems having similar facets.
+   - users will re-invent the wheel
+   - users may develop useless constraints that have an unnecessary specialization, limiting its reusability
+
+-> users may want to develop a constraint matching his requirements.
+   The gap to be able to provide the first constraint may be big despite the few lines of code that may be required : context of constraint programming, specific model, scalability requirements.
+   -> bad developments
+
+
+A catalog of constraints, based on {\btrp} characteristics, would guide users at being
+able to express their requirements through:
+     - combination of existing constraints
+     - the development of new constraints
+
+The catalog should provide:
+     - description of the context to let users understand the VMs and servers management capabilities
+     - categorization of constraints by concern / users' role / manipulated elements / ...
+     - strong uses cases to let users discover the applicability range of each constraint    
+     - a neutral model to allow them to think about the constraint model rather than implementation details
+     - relationships between constraints to indicate
+           + constraints that may overlap other constraints in certain conditions,
+	   + constraints that are more powerful than other in certain conditions
+     - description of each constraint model and methods to detect violating elements
+     
+The rest of the report is organized as follow.
+
+In Chapter~\ref{ch: hosting platforms}, we describe the fundaments related to a hosting platform dedicated to virtualization.
+%
+In Chapter~\ref{ch: reconfiguration} we present the principles of a reconfiguration process, the supported virtual machines and servers action.
+%
+In Chapter~\ref{ch: model} we present a format model to represent a reconfiguration process.
+%
+In Chapter~\ref{ch: constraints} we detail each of the constraints available in the catalog
+
+In Chapter~\ref{ch: annexe}, we present several notations that are used to describe configurations, reconfigurations and constraints in a textual or in an illustrated form.

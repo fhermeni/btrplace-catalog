@@ -1,0 +1,4 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{split}: \cstr{lonely(vs1)} \myEquiv \cstr{split(\{vs1,\oline{vs1}\})}
+\end{itemize}

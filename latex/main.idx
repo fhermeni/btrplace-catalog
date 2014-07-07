@@ -1,0 +1,100 @@
+\indexentry{By User!{application administrator}!root|hyperpage}{19}
+\indexentry{By User!{datacenter administrator}!root|hyperpage}{19}
+\indexentry{By Element!VM placement!root|hyperpage}{19}
+\indexentry{By Concern!VM-to-server placement!root|hyperpage}{19}
+\indexentry{By Concern!Performance!root|hyperpage}{19}
+\indexentry{By Concern!Resource management!root|hyperpage}{19}
+\indexentry{By User!{datacenter administrator}!ban|hyperpage}{21}
+\indexentry{By Element!VM placement!ban|hyperpage}{21}
+\indexentry{By Concern!Maintenance!ban|hyperpage}{21}
+\indexentry{By Concern!Partitioning!ban|hyperpage}{21}
+\indexentry{By Concern!VM-to-server placement!ban|hyperpage}{21}
+\indexentry{By User!{datacenter administrator}!fence|hyperpage}{23}
+\indexentry{By Element!VM placement!fence|hyperpage}{23}
+\indexentry{By Concern!Partitioning!fence|hyperpage}{23}
+\indexentry{By Concern!VM-to-server placement!fence|hyperpage}{23}
+\indexentry{By User!{datacenter administrator}!quarantine|hyperpage}{25}
+\indexentry{By Element!VM placement!quarantine|hyperpage}{25}
+\indexentry{By Concern!VM-to-server placement!quarantine|hyperpage}{25}
+\indexentry{By Concern!Partitioning!quarantine|hyperpage}{25}
+\indexentry{By Concern!Maintenance!quarantine|hyperpage}{25}
+\indexentry{By User!{application administrator}!among|hyperpage}{27}
+\indexentry{By User!{datacenter administrator}!among|hyperpage}{27}
+\indexentry{By Element!VM placement!among|hyperpage}{27}
+\indexentry{By Concern!Partitioning!among|hyperpage}{27}
+\indexentry{By Concern!VM-to-VM placement!among|hyperpage}{27}
+\indexentry{By Concern!VM-to-server placement!among|hyperpage}{27}
+\indexentry{By Concern!Performance!among|hyperpage}{27}
+\indexentry{By User!{application administrator}!lonely|hyperpage}{29}
+\indexentry{By Element!VM placement!lonely|hyperpage}{29}
+\indexentry{By Concern!VM-to-VM placement!lonely|hyperpage}{29}
+\indexentry{By Concern!Partitioning!lonely|hyperpage}{29}
+\indexentry{By User!{application administrator}!split|hyperpage}{31}
+\indexentry{By Element!VM placement!split|hyperpage}{31}
+\indexentry{By Concern!VM-to-VM placement!split|hyperpage}{31}
+\indexentry{By Concern!Partitioning!split|hyperpage}{31}
+\indexentry{By Concern!Fault tolerance!split|hyperpage}{31}
+\indexentry{By User!{application administrator}!splitAmong|hyperpage}{33}
+\indexentry{By Element!VM placement!splitAmong|hyperpage}{33}
+\indexentry{By Concern!VM-to-VM placement!splitAmong|hyperpage}{33}
+\indexentry{By Concern!Partitioning!splitAmong|hyperpage}{33}
+\indexentry{By Concern!Fault tolerance!splitAmong|hyperpage}{33}
+\indexentry{By User!{application administrator}!gather|hyperpage}{35}
+\indexentry{By Element!VM placement!gather|hyperpage}{35}
+\indexentry{By Concern!Performance!gather|hyperpage}{35}
+\indexentry{By Concern!VM-to-VM placement!gather|hyperpage}{35}
+\indexentry{By User!{application administrator}!spread|hyperpage}{37}
+\indexentry{By Element!VM placement!spread|hyperpage}{37}
+\indexentry{By Element!Actions schedule!spread|hyperpage}{37}
+\indexentry{By Concern!Fault tolerance!spread|hyperpage}{37}
+\indexentry{By Concern!VM-to-VM placement!spread|hyperpage}{37}
+\indexentry{By Concern!Partitioning!spread|hyperpage}{37}
+\indexentry{By User!{application administrator}!lazySpread|hyperpage}{39}
+\indexentry{By Element!VM placement!lazySpread|hyperpage}{39}
+\indexentry{By Concern!VM-to-VM placement!lazySpread|hyperpage}{39}
+\indexentry{By Concern!Fault tolerance!lazySpread|hyperpage}{39}
+\indexentry{By Concern!Partitioning!lazySpread|hyperpage}{39}
+\indexentry{By User!{application administrator}!mostlySpread|hyperpage}{41}
+\indexentry{By Element!VM placement!mostlySpread|hyperpage}{41}
+\indexentry{By Concern!VM-to-VM placement!mostlySpread|hyperpage}{41}
+\indexentry{By Concern!Fault tolerance!mostlySpread|hyperpage}{41}
+\indexentry{By Concern! Partitioning!mostlySpread|hyperpage}{41}
+\indexentry{By User!{application administrator}!preserve|hyperpage}{43}
+\indexentry{By Element!Resource allocation!preserve|hyperpage}{43}
+\indexentry{By Element!VM placement!preserve|hyperpage}{43}
+\indexentry{By Concern!VM-to-server placement!preserve|hyperpage}{43}
+\indexentry{By Concern!Resource management!preserve|hyperpage}{43}
+\indexentry{By User!{datacenter administrator}!oversubscription|hyperpage}{45}
+\indexentry{By Element!Resource allocation!oversubscription|hyperpage}{45}
+\indexentry{By Concern!Resource management!oversubscription|hyperpage}{45}
+\indexentry{By User!{datacenter administrator}!cumulatedCapacity|hyperpage}{47}
+\indexentry{By Element!VM placement!cumulatedCapacity|hyperpage}{47}
+\indexentry{By Element!Resource allocation!cumulatedCapacity|hyperpage}{47}
+\indexentry{By Concern!VM-to-server placement!cumulatedCapacity|hyperpage}{47}
+\indexentry{By Concern!Resource management!cumulatedCapacity|hyperpage}{47}
+\indexentry{By User!{datacenter administrator}!singleCapacity|hyperpage}{49}
+\indexentry{By Element!VM placement!singleCapacity|hyperpage}{49}
+\indexentry{By Element!Resource allocation!singleCapacity|hyperpage}{49}
+\indexentry{By Concern!Resource management!singleCapacity|hyperpage}{49}
+\indexentry{By Concern!VM-to-server placement!singleCapacity|hyperpage}{49}
+\indexentry{By User!{datacenter administrator}!minSpareResources|hyperpage}{51}
+\indexentry{By Element!Resource allocation!minSpareResources|hyperpage}{51}
+\indexentry{By Concern!Resource management!minSpareResources|hyperpage}{51}
+\indexentry{By Concern!Power saving!minSpareResources|hyperpage}{51}
+\indexentry{By Concern!Capacity planning!minSpareResources|hyperpage}{51}
+\indexentry{By User!{datacenter administrator}!maxSpareResources|hyperpage}{53}
+\indexentry{By Element!Resource allocation!maxSpareResources|hyperpage}{53}
+\indexentry{By Concern!Resource management!maxSpareResources|hyperpage}{53}
+\indexentry{By Concern!Power saving!maxSpareResources|hyperpage}{53}
+\indexentry{By Concern!Capacity planning!maxSpareResources|hyperpage}{53}
+\indexentry{By User!{datacenter administrator}!maxOnlines|hyperpage}{55}
+\indexentry{By Element!Resource allocation!maxOnlines|hyperpage}{55}
+\indexentry{By Concern!Resource management!maxOnlines|hyperpage}{55}
+\indexentry{By Concern!Power saving!maxOnlines|hyperpage}{55}
+\indexentry{By Concern!Capacity planning!maxOnlines|hyperpage}{55}
+\indexentry{By User!{datacenter administrator}!offline|hyperpage}{57}
+\indexentry{By Element!Servers state!offline|hyperpage}{57}
+\indexentry{By Concern!Resource management!offline|hyperpage}{57}
+\indexentry{By User!{datacenter administrator}!online|hyperpage}{58}
+\indexentry{By Element!Servers state!online|hyperpage}{58}
+\indexentry{By Concern!Resource management!online|hyperpage}{58}

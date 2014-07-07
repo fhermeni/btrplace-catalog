@@ -1,0 +1,58 @@
+% !TEX root =  ../main.tex
+\section{Offline}
+
+\subsection{Definition}
+
+\subsubsection{Signature} \cstr{offline(s : set<server>)}
+
+The \cstr{offline} constraint forces every server in \cstr{s} to be set in the \st{Offline} state.
+
+\subsubsection{Usage}
+
+This constraint deserves first hardware maintenance concerns. Using this constraint, one datacenter administrator can turn off a set of servers to perform maintenance operation on the hardware
+
+\classification{offline}{datacenter administrator}{Servers state}{Resource management}
+
+\subsubsection{Example}
+
+\fullVersion{
+\subsection{Model}
+
+The \cstr{offline} constraint is modeled in terms of the RPs variable by restricting
+the state variable of each involved server to 0.
+
+\begin{equation*}
+\begin{split}
+\forall N \in \mathcal{N},\ offline(N) & \triangleq\\
+&	\forall n_i \in N, n_i^q = 0
+\end{split}
+\end{equation*}
+
+\subsection{Violation detection}
+
+To compute the list of violating elements, it is a necessary to check for each of 
+the involved  server that are still online. VMs hosted on that server, including 
+VMs in the \st{running}, the \st{paused}, and the \st{sleeping} states, have to be
+relocated. This detection is optimal.
+
+\subsection{Availability}
+
+\subsubsection{In {\btrp}}
+
+The constraint is available in {\btrp} under the name \cstr{offline}. It is
+modeled by instantiated the state variable of each involved server to 1:
+
+\begin{equation*}
+\begin{split}
+\forall N \in \mathcal{N},\ offline(N) & \triangleq\\
+&	\forall n_i \in N, eq(n_i^q, 0)
+\end{split}
+\end{equation*}
+}
+
+\subsection{See also}
+\subsubsection{Related constraints}
+\begin{itemize}
+\item \cstrref{online}: The opposite constraint that is used to force servers to being set in the \st{Online} state.
+\item \cstrref{maxOnlines}:  To restrict the maximum number of servers that are simultaneously in the \st{Online} state.
+\end{itemize}

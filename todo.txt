@@ -1,0 +1,18 @@
+content:
+-> context and problem description
+-> rewriting rules
+-> spliting constraints
+-> formal model
+-> constraint implementation
+
+
+-> clarification overbooking/oversubscription
+-> clarification des types de ressources possibles et exemples associés pour les contraintes multi-ressources
+
+HTML:
+-> banner
+-> thanks
+
+
+See also
+

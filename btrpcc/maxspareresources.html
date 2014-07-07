@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="toc-constraints"><div class="title">Constraints</div><ul><li><a href="root.html">Root</a></li><li><a href="ban.html">Ban</a></li><li><a href="fence.html">Fence</a></li><li><a href="quarantine.html">Quarantine</a></li><li><a href="among.html">Among</a></li><li><a href="lonely.html">Lonely</a></li><li><a href="split.html">Split</a></li><li><a href="splitamong.html">SplitAmong</a></li><li><a href="gather.html">Gather</a></li><li><a href="spread.html">Spread</a></li><li><a href="lazyspread.html">LazySpread</a></li><li><a href="mostlyspread.html">MostlySpread</a></li><li><a href="preserve.html">Preserve</a></li><li><a href="oversubscription.html">Oversubscription</a></li><li><a href="cumulatedcapacity.html">CumulatedCapacity</a></li><li><a href="singlecapacity.html">SingleCapacity</a></li><li><a href="minspareresources.html">MinSpareResources</a></li><li><a href="maxspareresources.html">MaxSpareResources</a></li><li><a href="maxonlines.html">MaxOnlines</a></li><li><a href="offline.html">Offline</a></li><li><a href="online.html">Online</a></li></ul></div><h1>MaxSpareResources</h1>
+<h2 id="uid400">Definition</h2>
+<h3 id="uid401">Signature</h3>
+<p><code>maxSpareResources(s : set&lt;server&gt;, rc : string, n : number)</code></p>
+<ul>
+<li><p><code>s</code> : a non-empty set of servers for a meaningful constraint.</p>
+</li>
+<li><p><code>rc</code> : a resource identifier such as <code>mem</code>, <code>ucpu</code>, <code>pcpu</code> or <code>nodes</code> to identify the physical memory,
+the computational capacity, the physical CPUs or the node itself, respectively.</p>
+</li>
+<li><p><code>n</code> : a positive number</p>
+</li></ul>
+<p>The <code>maxSpareResources</code> restricts to at most <code>n</code>, the number of free resources directly
+available for VMs on the online servers in <code>s</code>. Servers in the <code>Offline</code> state are ignored.</p>
+<p><h3>Classification</h3><ul><li><b>Primary users</b>: 
+<a href="theindex.html?#datacenter administrator">datacenter administrator</a></li><li><b>Manipulated elements</b>: 
+<a href="theindex.html?#Resource allocation">Resource allocation</a></li><li><b>Concerns</b>: 
+<a href="theindex.html?#Resource management">Resource management</a>, <a href="theindex.html?#Power saving">Power saving</a>, <a href="theindex.html?#Capacity planning">Capacity planning</a></li></ul></p>
+
+<h3 id="uid410">Usage</h3>
+<p>This constraint deserves a power saving concern.
+The most effective solution to reduce the energy consumption of a non-saturated datacenter is to turn off unused servers and to turn on and off servers depending on the load variation.
+When a load spike arise, it may then be a necessary to put some servers online to make their resources available to the VMs. [<a href="references.html#bid49">26</a>], [<a href="references.html#bid50">48</a>]
+The time to boot the awaited servers may however be significant and alter the reactivity of the datacenter
+when it faces an emergency situations. One solution is to let online a controlled number
+of spare resources that can be used instantly to absorb the load increase.
+A datacenter administrator may then use one <code>maxSpareResources</code> constraint
+to control the maximum number of unused servers to let online while the others will
+be turned off to save power.</p>
+<p>It is worth noting that despite this constraint is applicable to a various number of resources, it is preferable to only focus
+the <code>nodes</code> resource. Indeed, a server provides resources at a coarse grain and it may not be possible to manage the resources according to the constraint by only managing the servers state.</p>
+
+<h3 id="uid411">Example</h3>
+<p>Figure <a href="#20">20</a> depicts a sample reconfiguration between a source and a destination configuration where each server provides 8 unit of CPU and 7 unit of memory resources to VMs. During the reconfiguration, several relocations have been performed and the server <code>N3</code> has been turned off to save power. In this setting, the following <code>maxSpareResources</code> constraints were considered:</p>
+<div class="figure"><a href="img/maxSpareResources.png" title="Click to enlarge"><img src="img/maxSpareResources.png" width="427.0pt" alt="img/maxSpareResources" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">20</span>:</span> A reconfiguration motivated by <code>maxSpareResources</code> constraints.</p></div>
+<ul>
+<li><p><code>maxSpareResources({N2,N3,N4},"node",1)</code>. This constraint was satisfied in the source configuration as no server was idle. The constraint is still satisfied in the destination configuration as only <code>N4</code> is in the <code>Online</code> state and idle.</p>
+</li>
+<li><p><code>maxSpareResources({N1,N2,N3},"ucpu",10)</code>. This constraint was not satisfied in the source configuration
+as 11 uCPU was directly available to the running VMs. The reconfiguration fixed this violation. With the shutdown of <code>N3</code>,
+8 uCPU resources are directly available in the destination configuration, which is an amount allowed by the constraint.</p>
+</li>
+<li><p><code>maxSpareResources({N1, N3},"mem",3)</code>. This constraint was not satisfied in the source configuration
+as 10 unit of memory were directly available to the running VMs. The reconfiguration fixed this violation. With the shutdown of <code>N3</code>, and the saturation of <code>N1</code>, no memory resources are left available to the VMs on these servers.</p>
+</li></ul>
+
+<h2 id="uid416">See also</h2>
+<h3 id="uid417">Related Constraints</h3>
+<ul>
+<li><p><a href="minSpareResources.html"><code>minSpareResources</code></a>: This constraint restricts the number of unused online servers to a given minimum.</p>
+</li></ul>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

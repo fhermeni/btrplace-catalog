@@ -1,0 +1,4 @@
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{singleCapacity}: \cstr{\tforall n \tin ns, cumulatedCapacity(\{n\}, nb, r)} \myEquiv \cstr{singleCapacity(ns, nb, r)}
+\end{itemize}

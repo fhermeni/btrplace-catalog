@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><h1>Preface</h1>
+<p>A joint effort between academics and industrial to homogenize hosting platform usage.
+Virtual Machine descriptor [<a href="references.html#bid0">36</a>]</p>
+<p>DMTF [<a href="references.html#bid1">15</a>],
+OCCI [<a href="references.html#bid2">35</a>]
+CDMI [<a href="references.html#bid3">11</a>]
+Datacenters provide through virtualization, platforms of choice to host a large range
+of applications.
+To perform a deployment, each application administrator embeds his application into
+Virtual Machines (VMs) that are placed by the VM manager on the datacenter servers.
+In addition to the VMs, the application administrator provides through a Service
+Level Agreement (SLA), his concerns in terms of VMs management.
+The VM manager must then place every applications' VM, according
+to their SLA, to satisfy their expectations in terms of security, availability, or performance.
+Placement requirements are subjects to evolution over the time and new expectations
+emerge regularly depending on the applications' domain, computer science trends, or new technologies.
+The VM manager should then support these evolutions as soon as possible to keep
+being suitable to host a large range of applications with their particular placement requirements.</p>
+<p>Traditional VM managers such as VMWare DRS [<a href="references.html#bid4">47</a>], Amazon EC2 [<a href="references.html#bid5">2</a>] are not
+designed for extensibility.
+When new needs emerge, they have to modify their placement algorithm and change their application
+interface.
+On the other side, Flexible VM managers [<a href="references.html#bid6">6</a>], [<a href="references.html#bid7">28</a>], [<a href="references.html#bid8">24</a>], [<a href="references.html#bid9">31</a>] argue for proactive approaches. In addition to a list of already supported
+placement constraints, they allow third party developers to implement their own placement constraints
+that can be plugged into the VM manager.
+As an example, BtrPlace provided a first library of 12 placement constraints to express dependability
+requirement and the Fit4Green projects [<a href="references.html#bid10">17</a>] extended it internally to make BtrPlace able to
+address power saving and hardware requirements concerns.</p>
+<p>In practice, the variety of the supported constraints</p>
+<p>Required expertise
+-&gt; several constraints may lead to the same result in terms of placement. However, depending
+on the context and their use, their efficiency may be different (unjustified scalability degradation,</p>
+<p>proposed constraints and the development of new constraints require
+a certain expertise for being fully effective. As an example, several combination of constraints
+may lead to the same result however, each constraint may have a specific domain or scope which make it particularly suitable in a specific context. As a result, their usage may lead to unexpected results or may limit the VM manager scalability due to an inappropriate usage.
+The same situation may occur when developers implement a new constraint to fulfill a lack in a VM manager. The lack of knowledge about the possible optimization techniques or a miss-understood
+of the real constraints expectation and behavior may result in a not fully effective and reusable constraint.</p>
+<p>In this paper, we arguing for a catalog
+We provide through BtrPlace an flexible virtual machines manager for datacenters to
+address applications and datacenter administrators expectations in terms of placement constraints.
+At the first stage, it allows users to pick up among the available constraints in its library, those who
+match placement requirements.</p>
+<p>Standard software documentation is not enough.
+Several solutions are possible to express the same requirements but they are not redundant as they differ in their performance in particular context. So the administrators must be able to understand relationships between constraints. Aside, they have to be able to choose the right constraints when a problem is not stated exactly in the documentation. In this situation, the administrator background may be misleading and the demonstration of the constraint usage in several contexts is required.</p>
+<p>-&gt; have to</p>
+<p>Potential problems:</p>
+<p>-&gt; miss understanding of existing constraints characteristics.
+several constraints may appear at first sight to be suitable to cover a specific requirement but a lack of knowledge or informations may lead to a non-expected result or poor performance if the choosed constraints are not the most efficient approach to handle the requirements.
+ex: 1 globalCapacity vs. n singleCapacity
+ex: 1 among constraint with only 1 group of nodes -&gt; choose a fence constraint</p>
+<p>-&gt; users have requirements that are thighly coupled with their own use case.
+This lack of perspective may mislead the users from the real requirements they have to address but also let them ignore existing solutions to problems having similar facets.
+- users will re-invent the wheel
+- users may develop useless constraints that have an unnecessary specialization, limiting its reusability</p>
+<p>-&gt; users may want to develop a constraint matching his requirements.
+The gap to be able to provide the first constraint may be big despite the few lines of code that may be required : context of constraint programming, specific model, scalability requirements.
+-&gt; bad developments</p>
+<p>A catalog of constraints, based on BtrPlace characteristics, would guide users at being
+able to express their requirements through:
+- combination of existing constraints
+- the development of new constraints</p>
+<p>The catalog should provide:
+- description of the context to let users understand the VMs and servers management capabilities
+- categorization of constraints by concern / users' role / manipulated elements / ...
+- strong uses cases to let users discover the applicability range of each constraint
+- a neutral model to allow them to think about the constraint model rather than implementation details
+- relationships between constraints to indicate
++ constraints that may overlap other constraints in certain conditions,
++ constraints that are more powerful than other in certain conditions
+- description of each constraint model and methods to detect violating elements</p>
+<p>The rest of the report is organized as follow.</p>
+<p>In Chapter , we describe the fundaments related to a hosting platform dedicated to virtualization.
+In Chapter 
+  "<a href="virtualized_hosting_platforms.html">Virtualized hosting platforms</a>"
+ we present the principles of a reconfiguration process, the supported virtual machines and servers action.
+In Chapter  we present a format model to represent a reconfiguration process.
+In Chapter 
+  "<a href="constraints.html">Constraints</a>"
+ we detail each of the constraints available in the catalog</p>
+<p>In Chapter 
+  "<a href="notations.html">Notations</a>"
+, we present several notations that are used to describe configurations, reconfigurations and constraints in a textual or in an illustrated form.</p>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

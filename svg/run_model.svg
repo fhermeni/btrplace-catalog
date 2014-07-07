@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="371.10156"
+   height="104.99999"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.1 r9760"
+   version="1.0"
+   sodipodi:docname="run_model2.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/Users/fabien/Entropy2/DSN/figs/consuming_action.png"
+   inkscape:export-xdpi="55.875065"
+   inkscape:export-ydpi="55.875065">
+  <defs
+     id="defs4">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern7626"
+       id="pattern7711"
+       patternTransform="matrix(10,0,0,10,-69.999998,-112.70358)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white"
+       id="pattern7626"
+       patternTransform="matrix(10,0,0,10,71.251452,784.61454)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect5914"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern8106"
+       id="pattern8116"
+       patternTransform="translate(4.1503907e-7,4.765625e-6)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1"
+       id="pattern8109"
+       patternTransform="matrix(10,0,0,10,-141.25145,-897.31812)" />
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path3974"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path3977"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect6276"
+       is_visible="true"
+       pattern="M 0,0 0,10 10,5 z"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1"
+       id="pattern5984"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1"
+       id="pattern5965"
+       patternTransform="matrix(10,0,0,10,440.94812,-502.25298)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path3279"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lstart"
+       style="overflow:visible">
+      <path
+         id="path3276"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(1.1,0,0,1.1,1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="83.756599"
+       height="19.999992"
+       patternTransform="matrix(0.35497588,-0.32487162,1.3400298,1.4642038,321.25145,581.94967)"
+       id="pattern5962">
+      <rect
+         transform="scale(-1,1)"
+         y="0.30329517"
+         x="-83.453308"
+         height="19.393402"
+         width="83.150009"
+         id="rect2449"
+         style="fill:url(#pattern5965);fill-opacity:1;stroke:#000000;stroke-width:0.60659033;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,466.25137,695.21047)"
+       id="pattern5981">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975"
+         style="fill:url(#pattern5984);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <inkscape:perspective
+       id="perspective5996"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,261.25149,761.94959)"
+       id="pattern5981-3">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-8"
+         style="fill:url(#pattern5984-0);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-2"
+       id="pattern5984-0"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-2"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-4"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <inkscape:perspective
+       id="perspective6036"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6058"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,521.25145,681.94968)"
+       id="pattern5981-0">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-5"
+         style="fill:url(#pattern5984-2);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-27"
+       id="pattern5984-2"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-27"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-3"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <inkscape:perspective
+       id="perspective6137"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6188"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6219"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6478"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6509"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6531"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,511.25145,681.94968)"
+       id="pattern5981-9">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-2"
+         style="fill:url(#pattern5984-4);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-3"
+       id="pattern5984-4"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-3"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-39"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <inkscape:perspective
+       id="perspective6572"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6650"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6672"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6706"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6728"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6750"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6825"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6856"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6856-2"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6856-3"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6958"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6958-4"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6958-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7040"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7040-4"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7040-44"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7082"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7104"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3308"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3347"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3395"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3479"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3525"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3571"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3644"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3690"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3776"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3819"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6891"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6916"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,261.25149,761.94959)"
+       id="pattern5981-3-7">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-8-7"
+         style="fill:url(#pattern5984-0-4);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-2-4"
+       id="pattern5984-0-4"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-2-4"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-4-9"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <inkscape:perspective
+       id="perspective6992"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,261.25149,761.94959)"
+       id="pattern5981-3-7-2">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-8-7-5"
+         style="fill:url(#pattern5984-0-4-2);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-2-4-2"
+       id="pattern5984-0-4-2"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-2-4-2"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-4-9-7"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,261.25149,761.94959)"
+       id="pattern5981-3-8">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-8-4"
+         style="fill:url(#pattern5984-0-1);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-2-7"
+       id="pattern5984-0-1"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-2-7"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-4-1"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="60"
+       patternTransform="matrix(0.58155485,-0.45229515,0.19740856,0.2538252,261.25149,761.94959)"
+       id="pattern5981-3-5">
+      <rect
+         y="0"
+         x="0"
+         height="60"
+         width="100"
+         id="rect5975-8-2"
+         style="fill:url(#pattern5984-0-11);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1-2-0"
+       id="pattern5984-0-11"
+       patternTransform="matrix(10,0,0,10,-540,-342.44968)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1-2-0"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4716-4-18"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path5048"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <inkscape:perspective
+       id="perspective7323"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7888"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7888-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="60.000004"
+       height="25.000015"
+       patternTransform="translate(141.25145,897.31812)"
+       id="pattern8106">
+      <rect
+         style="fill:url(#pattern8109);fill-opacity:1;stroke:none"
+         id="rect8095"
+         width="60.000004"
+         height="25.000015"
+         x="0"
+         y="0" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="60.000004"
+       height="25.000015"
+       patternTransform="matrix(0.26064511,0.16077129,-0.62554785,1.0141487,141.25145,897.31812)"
+       id="pattern8113">
+      <rect
+         id="rect8111"
+         y="0"
+         x="0"
+         height="25.000015"
+         width="60.000004"
+         style="fill:url(#pattern8116);stroke:none" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="60.000004"
+       height="25.000015"
+       patternTransform="translate(141.25145,897.31812)"
+       id="pattern7708">
+      <rect
+         y="0"
+         x="0"
+         height="25.000015"
+         width="60.000004"
+         id="rect7619"
+         style="fill:url(#pattern7711);fill-opacity:1;stroke:none" />
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.8308072"
+     inkscape:cx="234.58548"
+     inkscape:cy="85.738867"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1107"
+     inkscape:window-height="454"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2383"
+       visible="true"
+       enabled="true"
+       empspacing="5"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-71.251452,-847.31813)">
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;-inkscape-font-specification:Sans"
+       x="42.60416"
+       y="280.81659"
+       id="text3290"
+       transform="translate(71.251453,613.42722)"><tspan
+         sodipodi:role="line"
+         id="tspan3292"
+         x="42.60416"
+         y="280.81659" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Bitstream Vera Sans Oblique"
+       x="346.39563"
+       y="980.47314"
+       id="text5490-0"
+       transform="scale(1.0573212,0.94578639)"><tspan
+         sodipodi:role="line"
+         id="tspan5492-5"
+         x="346.39563"
+         y="980.47314">time</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.8, 4.8;stroke-dashoffset:0"
+       d="m 141.25145,932.31812 0,-70"
+       id="path7337"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 106.25145,932.31812 0,-65.22656"
+       id="path7337-30"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g5302"
+       transform="translate(31.085881,5.0913638)">
+      <flowRoot
+         xml:space="preserve"
+         id="use5284"
+         style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Times"
+         transform="matrix(0.89473678,0,0,0.80035271,105.53095,573.34471)"><flowRegion
+           id="flowRegion2983"><rect
+             id="rect2985"
+             width="52.435886"
+             height="43.696575"
+             x="-75.376587"
+             y="362.36151"
+             style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Times" /></flowRegion><flowPara
+           id="flowPara2987"
+           style="font-size:35.4513588px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Times"><flowSpan
+             style="font-size:23.6342392px"
+             id="flowSpan2995">N</flowSpan><flowSpan
+             style="font-size:18.9073925px"
+             id="flowSpan2993">1</flowSpan></flowPara></flowRoot>    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.84622991px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 91.251452,867.31812 269.999998,10e-6"
+       id="path4224-6"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path4224-6"
+       id="use5286"
+       transform="translate(-1e-6,25.226562)"
+       width="416.73886"
+       height="132.10573" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path4224-6"
+       id="use5288"
+       transform="translate(-1e-6,30.226562)"
+       width="416.73886"
+       height="132.10573" />
+    <path
+       id="use5290"
+       d="m 91.251452,922.31812 269.999998,10e-6"
+       style="fill:none;stroke:#000000;stroke-width:0.84622991px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="101.25145"
+       y="947.31812"
+       id="text7133"><tspan
+         sodipodi:role="line"
+         id="tspan7135"
+         x="101.25145"
+         y="947.31812">0</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       id="use7137"
+       d="m 201.25145,932.31812 0,-70"
+       style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.8, 4.8;stroke-dashoffset:0"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g7179"
+       transform="translate(19.000002,-64.773491)">
+      <text
+         id="text7141"
+         y="1012.0916"
+         x="101.25145"
+         style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:16px"
+           y="1012.0916"
+           x="101.25145"
+           id="tspan7143"
+           sodipodi:role="line">a</tspan></text>
+      <text
+         id="text7145"
+         y="1002.0916"
+         x="112.25145"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:10px"
+           y="1002.0916"
+           x="112.25145"
+           id="tspan7147"
+           sodipodi:role="line">st</tspan></text>
+      <text
+         id="text7153"
+         y="1017.0916"
+         x="111.25145"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:10px"
+           y="1017.0916"
+           x="111.25145"
+           id="tspan7155"
+           sodipodi:role="line">1</tspan></text>
+    </g>
+    <g
+       id="g7187"
+       transform="translate(20.000002,-109.77343)">
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="130.25145"
+         y="1057.0916"
+         id="use7157"><tspan
+           style="font-size:16px"
+           sodipodi:role="line"
+           id="tspan7165"
+           x="130.25145"
+           y="1057.0916">d</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="141.25145"
+         y="1047.0916"
+         id="use7159"><tspan
+           style="font-size:10px"
+           sodipodi:role="line"
+           id="tspan7169"
+           x="141.25145"
+           y="1047.0916"> st</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="140.25145"
+         y="1062.0916"
+         id="use7161"><tspan
+           style="font-size:10px"
+           sodipodi:role="line"
+           id="tspan7173"
+           x="140.25145"
+           y="1062.0916"> 1</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="136.25145"
+       y="947.31812"
+       id="text7175"><tspan
+         style="font-size:16px"
+         sodipodi:role="line"
+         id="tspan7177"
+         x="136.25145"
+         y="947.31812">=</tspan></text>
+    <g
+       transform="translate(90.000002,-64.773491)"
+       id="g7217">
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="101.25145"
+         y="1012.0916"
+         id="text7219"><tspan
+           sodipodi:role="line"
+           id="tspan7221"
+           x="101.25145"
+           y="1012.0916"
+           style="font-size:16px">a</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="112.25145"
+         y="1002.0916"
+         id="text7223"><tspan
+           sodipodi:role="line"
+           id="tspan7225"
+           x="112.25145"
+           y="1002.0916"
+           style="font-size:10px">ed</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="111.25145"
+         y="1017.0916"
+         id="text7227"><tspan
+           sodipodi:role="line"
+           id="tspan7229"
+           x="111.25145"
+           y="1017.0916"
+           style="font-size:10px">1</tspan></text>
+    </g>
+    <g
+       transform="translate(151,-109.77343)"
+       id="g7231">
+      <text
+         id="text7233"
+         y="1057.0916"
+         x="130.25145"
+         style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="1057.0916"
+           x="130.25145"
+           id="tspan7235"
+           sodipodi:role="line"
+           style="font-size:16px">d</tspan></text>
+      <text
+         id="text7237"
+         y="1047.0916"
+         x="141.25145"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="1047.0916"
+           x="141.25145"
+           id="tspan7239"
+           sodipodi:role="line"
+           style="font-size:10px"> ed</tspan></text>
+      <text
+         id="text7241"
+         y="1062.0916"
+         x="140.25145"
+         style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="1062.0916"
+           x="140.25145"
+           id="tspan7243"
+           sodipodi:role="line"
+           style="font-size:10px"> 1</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="8.1931076"
+       y="68.122406"
+       id="text2989"
+       transform="translate(41.251452,866.59156)"><tspan
+         sodipodi:role="line"
+         id="tspan2991"
+         x="8.1931076"
+         y="68.122406" /></text>
+    <g
+       transform="translate(33.272937,33.881003)"
+       id="g2997">
+      <flowRoot
+         transform="matrix(0.89473678,0,0,0.80035271,105.53095,573.34471)"
+         style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Times"
+         id="flowRoot2999"
+         xml:space="preserve"><flowRegion
+           id="flowRegion3001"><rect
+             style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Times"
+             y="362.36151"
+             x="-75.376587"
+             height="43.696575"
+             width="52.435886"
+             id="rect3003" /></flowRegion><flowPara
+           style="font-size:23.6342392px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Times"
+           id="flowPara3005">N<flowSpan
+   style="font-size:18.9073925px"
+   id="flowSpan3011">2</flowSpan></flowPara></flowRoot>    </g>
+    <rect
+       style="fill:#003366;fill-opacity:1;stroke:#000200;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3014"
+       width="149.99998"
+       height="24.999985"
+       x="141.25145"
+       y="897.31812" />
+    <g
+       transform="translate(181.28972,35.043112)"
+       id="g3852"
+       style="fill:#ffffff;fill-opacity:1">
+      <flowRoot
+         transform="matrix(0.89473678,0,0,0.80035271,105.53095,573.34471)"
+         style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Times"
+         id="flowRoot3854"
+         xml:space="preserve"><flowRegion
+           id="flowRegion3856"><rect
+             style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Times"
+             y="362.36151"
+             x="-75.376587"
+             height="43.696575"
+             width="52.435886"
+             id="rect3858" /></flowRegion><flowPara
+           style="font-size:18.9073925px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Times"
+           id="flowPara3860">VM<flowSpan
+   style="font-size:76.81121826%;baseline-shift:sub"
+   id="flowSpan3183">1</flowSpan></flowPara></flowRoot>    </g>
+    <rect
+       style="fill:#003366;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4006"
+       width="10"
+       height="10"
+       x="371.25146"
+       y="867.31812" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       x="391.25146"
+       y="877.31812"
+       id="text4536"><tspan
+         sodipodi:role="line"
+         id="tspan4538"
+         x="391.25146"
+         y="877.31812"
+         style="font-size:16px;font-style:italic;-inkscape-font-specification:Bitstream Vera Sans Oblique">d-slice</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:12, 12;stroke-dashoffset:0"
+       d="m 291.25145,932.31812 0,-35"
+       id="path2979"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       id="path3771"
+       d="m 201.25145,932.31812 0,-35"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:12, 12;stroke-dashoffset:0"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       id="path3773"
+       d="m 141.25145,932.31812 0,-35"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:12, 12;stroke-dashoffset:0"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
+       d="m 141.25145,862.31812 60,0"
+       id="path3775"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g4629"
+       transform="translate(-24,5.0000077)">
+      <g
+         transform="translate(34.000002,-204.77343)"
+         id="g4615">
+        <text
+           id="text4617"
+           y="1057.0916"
+           x="132.25145"
+           style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             y="1057.0916"
+             x="132.25145"
+             id="tspan4619"
+             sodipodi:role="line"
+             style="font-size:12px;font-style:oblique;-inkscape-font-specification:Bitstream Vera Sans Oblique">boot(VM<tspan
+   style="font-size:12px;font-style:oblique;baseline-shift:sub;-inkscape-font-specification:Bitstream Vera Sans Oblique"
+   id="tspan3181">1</tspan>)</tspan></text>
+        <text
+           id="text4621"
+           y="1047.0916"
+           x="141.25145"
+           style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             y="1047.0916"
+             x="141.25145"
+             id="tspan4623"
+             sodipodi:role="line"
+             style="font-size:10px"> </tspan></text>
+      </g>
+    </g>
+    <rect
+       style="fill:#6ac1ca;fill-opacity:1;stroke:none"
+       id="rect7716"
+       width="5"
+       height="24.1"
+       x="146.25145"
+       y="898.21808"
+       inkscape:tile-cx="77.499998"
+       inkscape:tile-cy="65.203575"
+       inkscape:tile-w="5"
+       inkscape:tile-h="25"
+       inkscape:tile-x0="74.999998"
+       inkscape:tile-y0="52.703575" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#rect7716"
+       xlink:href="#rect7716"
+       id="use7835"
+       width="431.10156"
+       height="107.70359" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#rect7716"
+       xlink:href="#rect7716"
+       transform="translate(10,0)"
+       id="use7837"
+       width="431.10156"
+       height="107.70359" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#rect7716"
+       xlink:href="#rect7716"
+       transform="translate(20,0)"
+       id="use7839"
+       width="431.10156"
+       height="107.70359" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#rect7716"
+       xlink:href="#rect7716"
+       transform="translate(30,0)"
+       id="use7841"
+       width="431.10156"
+       height="107.70359" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#rect7716"
+       xlink:href="#rect7716"
+       transform="translate(40,0)"
+       id="use7843"
+       width="431.10156"
+       height="107.70359" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#rect7716"
+       xlink:href="#rect7716"
+       transform="translate(50,0)"
+       id="use7845"
+       width="431.10156"
+       height="107.70359" />
+  </g>
+</svg>

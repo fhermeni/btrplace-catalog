@@ -1,0 +1,4 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{fence}+\cstrref{root}: \cstr{quarantine(s)} \myEquiv \cstr{root({\tuparrow}s), fence(\oline{{\tuparrow}s}, \oline{s})}
+\end{itemize}

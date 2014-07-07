@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="toc-constraints"><div class="title">Constraints</div><ul><li><a href="root.html">Root</a></li><li><a href="ban.html">Ban</a></li><li><a href="fence.html">Fence</a></li><li><a href="quarantine.html">Quarantine</a></li><li><a href="among.html">Among</a></li><li><a href="lonely.html">Lonely</a></li><li><a href="split.html">Split</a></li><li><a href="splitamong.html">SplitAmong</a></li><li><a href="gather.html">Gather</a></li><li><a href="spread.html">Spread</a></li><li><a href="lazyspread.html">LazySpread</a></li><li><a href="mostlyspread.html">MostlySpread</a></li><li><a href="preserve.html">Preserve</a></li><li><a href="oversubscription.html">Oversubscription</a></li><li><a href="cumulatedcapacity.html">CumulatedCapacity</a></li><li><a href="singlecapacity.html">SingleCapacity</a></li><li><a href="minspareresources.html">MinSpareResources</a></li><li><a href="maxspareresources.html">MaxSpareResources</a></li><li><a href="maxonlines.html">MaxOnlines</a></li><li><a href="offline.html">Offline</a></li><li><a href="online.html">Online</a></li></ul></div><h1>Split</h1>
+<h2 id="uid165">Definition</h2>
+<h3 id="uid166">Signature</h3>
+<p><code>split(vs: set&lt;set&lt;VM&gt;&gt;)</code></p>
+<ul>
+<li><p><code>vs</code> : a non-empty set of set of VMs for a meaningful constraint. VMs not in the <code>Running</code> state are ignored. Sets inside <code>vs</code> must be disjoint.</p>
+</li>
+<li><p><code>s2</code> : an non-empty set of VMs for a meaningful constraint, that is distinct from <code>s1</code>. VMs not in the <code>Running</code> state are ignored.</p>
+</li></ul>
+<p>The <code>split</code> constraint forces the given sets of VMs in <code>vs</code> to not share hosting servers.
+Each of the used servers can still host multiple VMs but they have to be in the same set.</p>
+<p><h3>Classification</h3><ul><li><b>Primary users</b>: 
+<a href="theindex.html?#application administrator">application administrator</a></li><li><b>Manipulated elements</b>: 
+<a href="theindex.html?#VM placement">VM placement</a></li><li><b>Concerns</b>: 
+<a href="theindex.html?#VM-to-VM placement">VM-to-VM placement</a>, <a href="theindex.html?#Partitioning">Partitioning</a>, <a href="theindex.html?#Fault tolerance">Fault tolerance</a></li></ul></p>
+
+<h3 id="uid174">Usage</h3>
+<p>The <code>split</code> constraint deserves isolation requirements. Hypervisors are supposed
+to provide a strong isolation between the VMs. However, various attacks such as those based on
+VM escaping [<a href="references.html#bid38">50</a>], allow to break this isolation to provide from a malicious VM, a non-legitimate access to the hypervisor or the other VMs.
+An application administrator may then want to have its VMs hosted on servers that do not
+host potentially malicious VMs. A <code>split</code> constraint may then be used to indicate the VMs that must be running on servers other than the supposed malicious ones.</p>
+<p>The <code>split</code> constraint deserves also fault tolerance requirements. For high-availability purposes,
+replicated applications are supposed to be running on distinct servers. In this setting, an application
+administrator may use one <code>split</code> constraint to ensure all the VMs of the application do not
+share any server with the replicated VMs.</p>
+
+<h3 id="uid175">Example</h3>
+<p>Figure <a href="#7">7</a> depicts a sample reconfiguration between a source and a destination configuration. In this example, the following <code>split</code> constraints were considered:</p>
+<div class="reconfiguration"><div class="left-config"><div class="listing"><p><code>N1: VM1 VM2</code></p>
+<p><code>N2: VM3</code></p>
+<p><code>N3: VM4 VM5</code></p>
+<p><code>N4: VM6</code></p>
+<p><code>N5: VM7 VM8</code></p>
+</div></div><div class="arrow-reconfig"><img src="img/arrow_reconfiguration.png" width="90px" alt="arrow" /></div><div class="right-config"><div class="listing"><p><code>N1: VM1</code></p>
+<p><code>N2: VM3</code></p>
+<p><code>N3: VM2 VM4 VM5</code></p>
+<p><code>N4: VM7 (VM6)</code></p>
+<p><code>N5: VM8</code></p>
+</div></div><p class="caption"><span class="float-label"><span class="float-name">Figure </span><span class="float-number">7</span>: </span>A reconfiguration motivated by <code>split</code> constraints.</p></div>
+<ul>
+<li><p><code>split({{VM1,VM3},{VM2, VM4}})</code>. This constraint was not satisfied in the source configuration as
+<code>VM2</code> and <code>VM1</code> were colocated despite they belong to different sets. This violation was fixed
+by relocating <code>VM2</code> to <code>N3</code>.</p>
+</li>
+<li><p><code>split({{VM5,VM6},{VM7, VM8}})</code>. This constraint was satisfied in the source configuration as no set of VMs share hosts. The constraint is still satisfied in the destination configuration: despite <code>VM7</code> and <code>VM6</code> are on the same server, <code>VM6</code> is not in the <code>Running</code> state, so it is ignored by the constraint.</p>
+</li></ul>
+
+<h2 id="uid179">See also</h2>
+<h3 id="uid180">Related Constraints</h3>
+<ul>
+<li><p><a href="spread.html"><code>spread</code></a>, <a href="lazySpread.html"><code>lazySpread</code></a>: These constraints
+disallow the colocation between VMs rather than groups of VMs.
+A <code>split</code> constraint is equivalent to a <code>lazySpread</code> constraint when the <code>split</code> constraint is made up with two sets of one VM each.</p>
+</li>
+<li><p><a href="splitAmong.html"><code>splitAmong</code></a>: This constraint forces several set of VMs to be hosted on distinct groups of servers among those explicitly allowed.</p>
+</li>
+<li><p><a href="lonely.html"><code>lonely</code></a>. The <code>lonely</code> constraint is a specialization of the <code>split</code> constraint that isolate a set of VMs from all the others. It can then be emulated using a <code>split</code> constraint when the second set of VMs is the absolution complement of the first one.</p>
+</li></ul>
+
+<h3 id="uid184">Specialization(s)</h3>
+<ul>
+<li><p>To <a href="lonely.html"><code>lonely</code></a>: <code>split({vs1,<span class="oline">vs1</span>})</code> &#8596; <code>lonely(vs1)</code></p>
+</li>
+<li><p>To <a href="lazySpread.html"><code>lazySpread</code></a>: <code>split(s/|s|)</code> &#8596; <code>lazySpread(s)</code></p>
+</li></ul>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+item_0 "\\vspace{5mm}\n \\item \\large \\bf "
+item_1 "\n \\subitem \\normalsize \\normalfont \\sc "
+item_01 "\n \\subitem \\normalsize \\sc "
+item_x1 "\n \\subitem \\normalsize \\sc "
+
+item_2 "\n \\subsubitem \\normalsize \\rm "
+item_02 "\n \\subsubitem \\normalsize \\rm "
+item_x2 "\n \\subsubitem \\normalsize \\rm "
+
+
+delim_0 "\\dotfill"
+delim_1 "\\dotfill"
+delim_2 "\\dotfill"

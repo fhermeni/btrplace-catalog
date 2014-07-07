@@ -1,0 +1,87 @@
+\documentclass[a4paper]{report}
+\usepackage{RR}
+\usepackage[shortVersion]{btrpcc}
+\usepackage[T1]{fontenc}
+\makeindex
+
+\setcounter{tocdepth}{1}
+
+%%%
+\RRdate{08/19/2012}
+\RRauthor{
+Fabien Hermenier\thanks[oasis]{INRIA - CNRS - I3S, Univ. Nice Sophia-Antipolis, --fabien.hermenier@inria.fr}}
+
+
+\RRequipe{OASIS}
+\RCSophia
+\RRetitle{The BtrPlace Constraints Catalog}
+\RRtitle{The BtrPlace Constraints Catalog}
+
+
+
+
+\RRabstract{
+Datacenters provide through virtualization, platforms of choice to host a large range
+of applications. At submission, each tenant provides through a Service Level Agreement
+its concerns in terms of VMs management. These concerns are typically related
+to performance, reliability, or isolation criteria. In parallel, platform administrators have
+management criteria related to power management,  resource allocation or security
+concerns.
+
+All of these constraints have to be considered by the VM manager running on the hosting
+platform to make management decisions aligned with the tenants and the administrators
+expectations.  
+%
+Each existing VM manager provides its own constraints to address some of
+these criteria or allow to integrate external constraints. However, the semantic of a constraint
+varies with the VM manager while constraints' users lack of expertise when they have to
+select or develop new constraints matching their expectations.
+
+This catalog gathers constraints that are of a practical interest to manage VMs
+and servers in a hosting platform such as a datacenter or a cloud. Each constraint
+is associated with practical use cases and classification criteria to help users at
+understanding its interest. In addition, a formal definition and a vendor neutral model
+allow to understand the constraint impact on a VM manager decision.
+Finally, the availability of each constraint in common VM manager is described 
+while its formal model provides the fundaments for an implementation
+in flexible VM managers.
+}
+
+\RRmotcle{Virtualisation; Centre de donn\'ees; Gestion des ressources; Qualit\'e de service; Reconfiguration}
+
+\RRkeyword{Virtualization; Datacenter; Resource Management; Service Level Agreements; Reconfiguration}
+
+\RCSophia
+
+\begin{document}
+\makeRT
+\tableofcontents 
+ \clearpage
+%\listoffigures
+%\listoftables
+%\lstlistoflistings
+\input{intro}
+%\input{hostingPlatform}
+\input{reconfiguration}
+\fullVersion{
+\input{model}
+}
+\input{constraints.tex}
+
+
+\input{annexe}
+
+\input{inheritance}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\indexname}
+\printindex
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{abbrv}
+\bibliography{references}
+
+
+\end{document}

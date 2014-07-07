@@ -1,0 +1,5 @@
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{lonely}: \cstr{split(\{vs1,\oline{vs1}\})} \myEquiv \cstr{lonely(vs1)}
+\item To \cstrref{lazySpread}: \cstr{split(s/\card{s})} \myEquiv \cstr{lazySpread(s)}
+\end{itemize}

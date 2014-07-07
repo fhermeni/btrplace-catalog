@@ -1,0 +1,38 @@
+% !TEX root =  main.tex
+\chapter{Constraint Reformulation}
+\label{ch: inheritance}
+
+Each VM manager supports a limited set of constraints and a user may  expressed some
+constraints that are not available on the VM manager that will host its VMs.
+
+Using the semantic of each constraint, it is possible to establish an inheritance relationship
+between constraints. These relations allow to reformulate some constraints that are missing
+using a peculiar utilization of more generic constraints while preserving their semantics.
+It has however to be noticed that the semantical equivalence between a constraint
+and its reformulation  does not ensure the two implementations will have an equivalent 
+practical efficiency. Only an analysis of the constraints model and internals may reveal
+their relative performances.
+
+This chapter summarizes the inheritance relationship between the constraints presented
+in the catalog. First, we present the inheritance graph between all the constraints
+to indicate the available reformulations We then present the associated rewriting rules.
+
+\section{Inheritance Graph}
+
+Figure~\ref{fig: inheritance graph} depicts the global inheritance graph between the constraints. 
+An arrow between two constraints indicates a possible reformulation.
+As an example, a \cstr{gather} constraint can be reformulated using a \cstr{among} constraint.
+It is then possible to express the restriction provided by a \cstr{gather} constraint using a
+peculiar specialization of a \cstr{among} constraint.
+The inheritance relationship is also transitive. A \cstr{gather} constraint can then
+be expressed using a \cstr{splitAmong} constraint.
+%
+A "$+$" vertex indicates a composition of constraints. As an example, the \cstr{quarantine}
+constraint can be reformulated using a peculiar composition of \cstr{root} and \cstr{ban} constraints. 
+
+\printInheritanceGraph{fig: inheritance graph}
+
+\section{Rewriting rules}
+
+In this section, we present the rewriting rules associated to each constraint reformulation.
+\printListOfInheritances

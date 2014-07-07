@@ -1,0 +1,8 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{ban}: \cstr{fence(vs1, ns1)} \myEquiv \cstr{ban(vs1,\oline{ns1})}
+\end{itemize}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{ban}: \cstr{fence(vs1,\oline{ns1})} \myEquiv \cstr{ban(vs1, ns1)}
+\end{itemize}

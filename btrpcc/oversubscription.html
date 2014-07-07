@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="toc-constraints"><div class="title">Constraints</div><ul><li><a href="root.html">Root</a></li><li><a href="ban.html">Ban</a></li><li><a href="fence.html">Fence</a></li><li><a href="quarantine.html">Quarantine</a></li><li><a href="among.html">Among</a></li><li><a href="lonely.html">Lonely</a></li><li><a href="split.html">Split</a></li><li><a href="splitamong.html">SplitAmong</a></li><li><a href="gather.html">Gather</a></li><li><a href="spread.html">Spread</a></li><li><a href="lazyspread.html">LazySpread</a></li><li><a href="mostlyspread.html">MostlySpread</a></li><li><a href="preserve.html">Preserve</a></li><li><a href="oversubscription.html">Oversubscription</a></li><li><a href="cumulatedcapacity.html">CumulatedCapacity</a></li><li><a href="singlecapacity.html">SingleCapacity</a></li><li><a href="minspareresources.html">MinSpareResources</a></li><li><a href="maxspareresources.html">MaxSpareResources</a></li><li><a href="maxonlines.html">MaxOnlines</a></li><li><a href="offline.html">Offline</a></li><li><a href="online.html">Online</a></li></ul></div><h1>Oversubscription</h1>
+<h2 id="uid317">Definition</h2>
+<h3 id="uid318">Signature</h3>
+<p><code>oversubscription(s : set&lt;server&gt;, r : string, x : number)</code></p>
+<ul>
+<li><p><code>s</code> : a non-empty set of servers</p>
+</li>
+<li><p><code>r</code> : a resource identifier such as <code>mem</code>, <code>ucpu</code>, <code>pcpu</code> to identify the physical memory,
+the computational capacity, the physical CPUs, respectively.</p>
+</li>
+<li><p><code>x</code> : a positive percentage</p>
+</li></ul>
+<p>The <code>oversubscription</code> constraint ensures the online servers in <code>s</code> have for each hosted VM,
+an amount of free resources at least equals to a given factor of a physical resource.
+Servers not in the <code>Online</code> state and VMs not in the <code>Running</code> state are ignored.</p>
+<p><h3>Classification</h3><ul><li><b>Primary users</b>: 
+<a href="theindex.html?#datacenter administrator">datacenter administrator</a></li><li><b>Manipulated elements</b>: 
+<a href="theindex.html?#Resource allocation">Resource allocation</a></li><li><b>Concerns</b>: 
+<a href="theindex.html?#Resource management">Resource management</a></li></ul></p>
+
+<h3 id="uid325">Usage</h3>
+<p>The memory is usually considered as the bottleneck that limitooor the servers hosting capacity.
+Originally, the memory was not shareable between the VMs so their cumulated requirement shall not exceed the servers capacity. Hypervisors such as Xen [<a href="references.html#bid41">22</a>] or VMWare [<a href="references.html#bid42">49</a>] now provide sharing systems to oversubscribe the memory.
+The datacenter administrator can then use <code>oversubscription</code> constraint to control this sharing. With a factor greater than 100%,
+a server can host simultaneously VMs with a cumulated memory usage that exceed its capacity. A high factor increases the hosting capabilities of the servers but may alter the VMs performance due to the overhead of the memory sharing system.</p>
+<p>It is also accepted to oversubscribe the physical CPUs (PCPUs) of a server. Each VM uses one or more virtual CPUs (VCPUs) and for the maximum performance, each VCPU should be mapped to a dedicated PCPU. In practice, multiple VCPU are mapped to a same PCPU when the performance overhead is acceptable.
+In 2010, The Virtual Management Index reported an oversubcription ratio of 200%: each PCPU is allocated to 2 VCPUs on average. [<a href="references.html#bid43">46</a>]</p>
+<p>Finally, a VM is usually an instance of a given template that define the maximum amount of computational resources (UCPU) it can consume. To increase the hosting capacity of the servers, the resource are often allocated dynamically, on demand,
+rather than statically[<a href="references.html#bid44">45</a>], [<a href="references.html#bid45">40</a>], [<a href="references.html#bid46">9</a>], [<a href="references.html#bid47">25</a>]. It is however not desirable to place too many VMs that currently consume a few uCPU on a single server as it increases the chances of having a saturated server if the VMs simultaneously increase their uCPU demand. One solution to control this oversubscription is to ensure to each of the VMs a given percentage of its maximum uCPU resource usage. For example, the datacenter administrator may use one <code>oversubscription</code> constraint and an oversubscription ratio of 80% to ensure each server must be able to provide each of the VMs it hosts 80% of the VM's maximum uCPU usage, even if its current demand is inferior.</p>
+
+<h3 id="uid326">Example</h3>
+<p>Figure <a href="#16">16</a> depicts a sample reconfiguration between a source and a destination configuration where each server provides 8 unit of CPU and 7 unit of memory resources to VMs. The rectangles of the VMs denotes their maximum requirements while the grey part denotes their usage. During the reconfiguration, the following <code>oversubscription</code> constraints were considered:</p>
+<div class="figure"><a href="img/oversubscription.png" title="Click to enlarge"><img src="img/oversubscription.png" width="427.0pt" alt="img/oversubscription" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">16</span>:</span> A reconfiguration motivated by <code>oversubscription</code> constraints.</p></div>
+<ul>
+<li><p><code>oversubscription({N1,N2},"ucpu", 100%)</code>. This constraint was satisfied in the source configuration
+as each of the hosted VMs has enough UCPU resources to satisfy its maximum usage. The constraint is still
+satisfied in the destination configuration despite the relocation of <code>VM5</code> to <code>N2</code>.</p>
+</li>
+<li><p><code>oversubscription({N3, N4},"ucpu",66%)</code>. This constraint was not satisfied in the source configuration.
+<code>VM3</code> and <code>VM4</code> were consuming 50% of their maximum UCPU resources allowed but the presence
+of <code>VM5</code> disallows them to be able to consume the required 66%. The reconfiguration process
+fixed that violation by relocating <code>VM5</code> to <code>N3</code>. As a result, <code>VM3</code> and <code>VM4</code> are ensured to be
+able to consume at least 66% of their maximum allowed. In practice, there will be able to consume 100%.</p>
+</li></ul>
+
+<h2 id="uid330">See also</h2>
+<h3 id="uid331">Related Constraints</h3>
+<ul>
+<li><p><a href="preserve.html"><code>preserve</code></a>: A constraint to control the resource allocation
+at the VM level.</p>
+</li>
+<li><p><a href="singleCapacity.html"><code>singleCapacity</code></a>: A constraint to control the resource available on servers.</p>
+</li></ul>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

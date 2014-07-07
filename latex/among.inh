@@ -1,0 +1,9 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{splitAmong}: \cstr{among(vs1, ns1)} \myEquiv \cstr{splitAmong(\{vs1\},ns1)}
+\end{itemize}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{gather}: \cstr{among(s,\allNodes/|\allNodes|)} \myEquiv \cstr{gather(s)}
+\item To \cstrref{ban}: \cstr{among(vs1,\{\oline{ns1}\})} \myEquiv \cstr{ban(vs1, ns1)}
+\end{itemize}

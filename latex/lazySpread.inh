@@ -1,0 +1,6 @@
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{mostlySpread}: \cstr{lazySpread(s)} \myEquiv \cstr{mostlySpread(s,\card{s})}
+\item Using \cstrref{splitAmong}: \cstr{lazySpread(s1)} \myEquiv \cstr{splitAmong(s/\card{s},\allNodes/\card{\allNodes})}
+\item Using \cstrref{split}: \cstr{lazySpread(s)} \myEquiv \cstr{split(s/\card{s})}
+\end{itemize}

@@ -1,0 +1,78 @@
+\subsection{SplitAmong}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{lazySpread}: \cstr{splitAmong(s/\card{s},\allNodes/\card{\allNodes})} \myEquiv \cstr{lazySpread(s1)}
+\item To \cstrref{among}: \cstr{splitAmong(\{vs1\},ns1)} \myEquiv \cstr{among(vs1, ns1)}
+\end{itemize}
+\subsection{Lonely}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{split}: \cstr{lonely(vs1)} \myEquiv \cstr{split(\{vs1,\oline{vs1}\})}
+\end{itemize}
+\subsection{MostlySpread}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{lazySpread}: \cstr{mostlySpread(s,\card{s})} \myEquiv \cstr{lazySpread(s)}
+\end{itemize}
+\subsection{Quarantine}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{fence}+\cstrref{root}: \cstr{quarantine(s)} \myEquiv \cstr{root({\tuparrow}s), fence(\oline{{\tuparrow}s}, \oline{s})}
+\end{itemize}
+\subsection{Split}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{lonely}: \cstr{split(\{vs1,\oline{vs1}\})} \myEquiv \cstr{lonely(vs1)}
+\item To \cstrref{lazySpread}: \cstr{split(s/\card{s})} \myEquiv \cstr{lazySpread(s)}
+\end{itemize}
+\subsection{LazySpread}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{mostlySpread}: \cstr{lazySpread(s)} \myEquiv \cstr{mostlySpread(s,\card{s})}
+\item Using \cstrref{splitAmong}: \cstr{lazySpread(s1)} \myEquiv \cstr{splitAmong(s/\card{s},\allNodes/\card{\allNodes})}
+\item Using \cstrref{split}: \cstr{lazySpread(s)} \myEquiv \cstr{split(s/\card{s})}
+\end{itemize}
+\subsection{Ban}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{fence}: \cstr{ban(vs1, ns1)} \myEquiv \cstr{fence(vs1,\oline{ns1})}
+\item Using \cstrref{among}: \cstr{ban(vs1, ns1)} \myEquiv \cstr{among(vs1,\{\oline{ns1}\})}
+\end{itemize}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{fence}: \cstr{ban(vs1,\oline{ns1})} \myEquiv \cstr{fence(vs1, ns1)}
+\end{itemize}
+\subsection{SingleCapacity}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{cumulatedCapacity}: \cstr{singleCapacity(ns, nb, r)} \myEquiv \cstr{\tforall n \tin ns, cumulatedCapacity(\{n\}, nb, r)}
+\end{itemize}
+\subsection{Fence}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{ban}: \cstr{fence(vs1, ns1)} \myEquiv \cstr{ban(vs1,\oline{ns1})}
+\end{itemize}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{ban}: \cstr{fence(vs1,\oline{ns1})} \myEquiv \cstr{ban(vs1, ns1)}
+\end{itemize}
+\subsection{Among}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{splitAmong}: \cstr{among(vs1, ns1)} \myEquiv \cstr{splitAmong(\{vs1\},ns1)}
+\end{itemize}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{gather}: \cstr{among(s,\allNodes/|\allNodes|)} \myEquiv \cstr{gather(s)}
+\item To \cstrref{ban}: \cstr{among(vs1,\{\oline{ns1}\})} \myEquiv \cstr{ban(vs1, ns1)}
+\end{itemize}
+\subsection{Gather}
+\subsubsection{Reformulation(s)}
+\begin{itemize}
+\item Using \cstrref{among}: \cstr{gather(s)} \myEquiv \cstr{among(s,\allNodes/|\allNodes|)}
+\end{itemize}
+\subsection{CumulatedCapacity}
+\subsubsection{Specialization(s)}
+\begin{itemize}
+\item To \cstrref{singleCapacity}: \cstr{\tforall n \tin ns, cumulatedCapacity(\{n\}, nb, r)} \myEquiv \cstr{singleCapacity(ns, nb, r)}
+\end{itemize}

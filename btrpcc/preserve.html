@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="toc-constraints"><div class="title">Constraints</div><ul><li><a href="root.html">Root</a></li><li><a href="ban.html">Ban</a></li><li><a href="fence.html">Fence</a></li><li><a href="quarantine.html">Quarantine</a></li><li><a href="among.html">Among</a></li><li><a href="lonely.html">Lonely</a></li><li><a href="split.html">Split</a></li><li><a href="splitamong.html">SplitAmong</a></li><li><a href="gather.html">Gather</a></li><li><a href="spread.html">Spread</a></li><li><a href="lazyspread.html">LazySpread</a></li><li><a href="mostlyspread.html">MostlySpread</a></li><li><a href="preserve.html">Preserve</a></li><li><a href="oversubscription.html">Oversubscription</a></li><li><a href="cumulatedcapacity.html">CumulatedCapacity</a></li><li><a href="singlecapacity.html">SingleCapacity</a></li><li><a href="minspareresources.html">MinSpareResources</a></li><li><a href="maxspareresources.html">MaxSpareResources</a></li><li><a href="maxonlines.html">MaxOnlines</a></li><li><a href="offline.html">Offline</a></li><li><a href="online.html">Online</a></li></ul></div><h1>Preserve</h1>
+<h2 id="uid297">Definition</h2>
+<h3 id="uid298">Signature</h3>
+<p><code>preserve(s : set&lt;VM&gt;, r:string, n : number)</code></p>
+<ul>
+<li><p><code>s</code>: a non-empty set of VMs for a meaningful constraint. VMs not in the <code>Running</code> state are ignored.</p>
+</li>
+<li><p><code>r</code> : a resource identifier such as <code>mem</code>, <code>ucpu</code>, <code>pcpu</code> to identify the physical memory,
+the computational capacity, the physical CPUs, respectively.</p>
+</li>
+<li><p><code>n</code>: a positive amount of resources</p>
+</li></ul>
+<p>The <code>preserve</code> constraint ensures each running VM in <code>s</code> is hosted on a server
+having at minimum an amount of resource of type <code>r</code> equals to <code>n</code> dedicated to the VM.</p>
+<p><h3>Classification</h3><ul><li><b>Primary users</b>: 
+<a href="theindex.html?#application administrator">application administrator</a></li><li><b>Manipulated elements</b>: 
+<a href="theindex.html?#Resource allocation">Resource allocation</a>, <a href="theindex.html?#VM placement">VM placement</a></li><li><b>Concerns</b>: 
+<a href="theindex.html?#VM-to-server placement">VM-to-server placement</a>, <a href="theindex.html?#Resource management">Resource management</a></li></ul></p>
+
+<h3 id="uid307">Usage</h3>
+<p>The <code>preserve</code> constraint allows to control the resource allocated to the given VMs.
+This constraint may first be used inside a provisioning algorithm developed by an application administrator
+to indicate to the resource manager an ideal amount of resources to provide to the VMs to let them work at a peak level of performance.</p>
+<p>Inside a non-conservative consolidated environment, a server may host several VMs that currently
+ask for a small amount of resources. In this situation, the server may become saturated if VMs ask suddenly for a little more resources. This situation is not idyllic as these micro variations may lead to numerous relocations. To prevent that situation and reduce the frequency of the reconfigurations, the datacenter administrator may use one <code>preserve</code> constraint to
+over-allocate a minimum amount of resources to the VMs that ask for a small amount of resources.</p>
+
+<h3 id="uid308">Example</h3>
+<p>Figure <a href="#14">14</a> depicts a sample reconfiguration between a source and a destination configuration where each server provides 8 unit of CPU and 7 unit of memory resources to VMs. Each VM is associated to a gray rectangle that denotes its resource requirement, expressed using <code>preserve</code> constraints. A rectangle overlapping another one on a dimension indicates the two associated VMs have to share resources. This reveals an overloaded server. Figure <a href="#3.15">3.15</a> depicts the associated event-based reconfiguration plan. The following <code>preserve</code> constraints were considered:</p>
+<div class="figure"><a href="img/preserve.png" title="Click to enlarge"><img src="img/preserve.png" width="427.0pt" alt="img/preserve" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">14</span>:</span> A reconfiguration motivated by <code>preserve</code> constraints.</p></div>
+<div class="reconfPlan"><table class="event-plan"><tr><td>Ø</td><td class="post"> relocate(VM6)</td></tr><tr><td>!relocate(VM6)</td><td class="post"> relocate(VM7)</td></tr><tr><td>!relocate(VM7)</td><td class="post"> relocate(VM4)</td></tr></table><p class="caption"><span class="float-label"><span class="float-name">Figure </span><span class="float-number">3.15</span>:</span> Event-based reconfiguration plan.</p></div>
+<ul>
+<li><p><code>preserve({VM2, VM3},4,"ucpu")</code>. This constraint was not satisfied in the source configuration as the
+hosting servers of the given VMs do not provide enough resource to them: <code>N1</code> provides 8 unit of
+CPU resources but <code>VM6</code> requires 5 units and <code>VM2</code> requires 4 units . In addition, VMs on <code>N2</code> required 10 units of CPU resources. These violation were fixed by relocating <code>VM4</code> and <code>VM6</code> to <code>N3</code> and <code>N4</code>, respectively.
+However, <code>N4</code> does not initially provides enough resources to host simultaneously <code>VM4</code> and <code>VM7</code>. It has then be decided to relocate first <code>VM6</code> to <code>N4</code>Êto liberate enough resource on <code>N1</code> to host <code>VM7</code>. Once this relocation terminated, enough resources were available on <code>N3</code> to
+host <code>VM4</code>.</p>
+</li>
+<li><p><code>preserve({VM1, VM7, VM5},2,"mem")</code>. This constraint was satisfied in the source configuration as
+their hosting servers provided enough memory resources to meet their requirement. The constraint is still
+satisfied in the destination configuration despite the relocation of <code>VM7</code>.</p>
+</li></ul>
+
+<h2 id="uid313">See also</h2>
+<h3 id="uid314">Related Constraints</h3>
+<ul>
+<li><p><a href="oversubscription.html"><code>oversubscription</code></a>: A constraint made available to the
+datacenter administrator to control the resource overbooking on the servers.</p>
+</li></ul>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>

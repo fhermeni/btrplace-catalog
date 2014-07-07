@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31187620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <title>The BtrPlace Constraints Catalog</title>
+  </head>
+  <body>
+    <div id="content"><div id="title">The BtrPlace Constraints Catalog</div><div id="chapters-banner"><ul id="banner.main"><li><a href="index.html">Home</a></li><li><a href="preface.html">Preface</a></li><li><a href="virtualized_hosting_platforms.html">Virtualized Hosting Platforms</a></li><li><a href="notations.html">Notations</a></li><li><a href="references.html">References</a></li></ul><ul id="banner.constraints"><li>Constraints:</li><li><a href="constraints.html">Summary</a></li><li><a href="theindex.html">Index</a></li><li><a href="constraint_reformulation.html">Reformulations</a></li></ul></div><div id="chapter-toc"><div class="title">Summary</div><ul class="level-1"><li><a href="#uid469">Inheritance Graph</a></li><li><a href="#uid471">Rewriting rules</a><ul class="level-2"><li><a href="#uid472">SplitAmong</a></li><li><a href="#uid476">Lonely</a></li><li><a href="#uid479">MostlySpread</a></li><li><a href="#uid482">Quarantine</a></li><li><a href="#uid485">Split</a></li><li><a href="#uid489">LazySpread</a></li><li><a href="#uid494">Ban</a></li><li><a href="#uid500">SingleCapacity</a></li><li><a href="#uid503">Fence</a></li><li><a href="#uid508">Among</a></li><li><a href="#uid514">Gather</a></li><li><a href="#uid517">CumulatedCapacity</a></li></ul></li></ul></div><h1>Constraint Reformulation</h1>
+<p>Each VM manager supports a limited set of constraints and a user may expressed some
+constraints that are not available on the VM manager that will host its VMs.</p>
+<p>Using the semantic of each constraint, it is possible to establish an inheritance relationship
+between constraints. These relations allow to reformulate some constraints that are missing
+using a peculiar utilization of more generic constraints while preserving their semantics.
+It has however to be noticed that the semantical equivalence between a constraint
+and its reformulation does not ensure the two implementations will have an equivalent
+practical efficiency. Only an analysis of the constraints model and internals may reveal
+their relative performances.</p>
+<p>This chapter summarizes the inheritance relationship between the constraints presented
+in the catalog. First, we present the inheritance graph between all the constraints
+to indicate the available reformulations We then present the associated rewriting rules.</p>
+<h2 id="uid469">Inheritance Graph</h2>
+<p>Figure <a href="#1">1</a> depicts the global inheritance graph between the constraints.
+An arrow between two constraints indicates a possible reformulation.
+As an example, a <code>gather</code> constraint can be reformulated using a <code>among</code> constraint.
+It is then possible to express the restriction provided by a <code>gather</code> constraint using a
+peculiar specialization of a <code>among</code> constraint.
+The inheritance relationship is also transitive. A <code>gather</code> constraint can then
+be expressed using a <code>splitAmong</code> constraint.
+A "+" vertex indicates a composition of constraints. As an example, the <code>quarantine</code>
+constraint can be reformulated using a peculiar composition of <code>root</code> and <code>ban</code> constraints.</p>
+<div class="figure"><a href="img/inheritance.png" title="Click to enlarge"><img src="img/inheritance.png" width="320.25pt" alt="img/inheritance" /></a>
+<p class="caption"><span class="float-label"><span class="float-name">figure </span><span class="float-number">1</span>:</span> Inheritance graph between the constraints.</p></div>
+
+<h2 id="uid471">Rewriting rules</h2>
+<p>In this section, we present the rewriting rules associated to each constraint reformulation.</p>
+<h3 id="uid472">SplitAmong</h3>
+<h4 id="uid473">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="lazySpread.html"><code>lazySpread</code></a>: <code>splitAmong(s/|s|,<span class="cursive">N</span>/|<span class="cursive">N</span>|)</code> &#8596; <code>lazySpread(s1)</code></p>
+</li>
+<li><p>To <a href="among.html"><code>among</code></a>: <code>splitAmong({vs1},ns1)</code> &#8596; <code>among(vs1, ns1)</code></p>
+</li></ul>
+
+<h3 id="uid476">Lonely</h3>
+<h4 id="uid477">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="split.html"><code>split</code></a>: <code>lonely(vs1)</code> &#8596; <code>split({vs1,<span class="oline">vs1</span>})</code></p>
+</li></ul>
+
+<h3 id="uid479">MostlySpread</h3>
+<h4 id="uid480">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="lazySpread.html"><code>lazySpread</code></a>: <code>mostlySpread(s,|s|)</code> &#8596; <code>lazySpread(s)</code></p>
+</li></ul>
+
+<h3 id="uid482">Quarantine</h3>
+<h4 id="uid483">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="fence.html"><code>fence</code></a>+<a href="root.html"><code>root</code></a>: <code>quarantine(s)</code> &#8596; <code>root(&#8593;s), fence(<span class="oline">&#8593;s</span>, <span class="oline">s</span>)</code></p>
+</li></ul>
+
+<h3 id="uid485">Split</h3>
+<h4 id="uid486">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="lonely.html"><code>lonely</code></a>: <code>split({vs1,<span class="oline">vs1</span>})</code> &#8596; <code>lonely(vs1)</code></p>
+</li>
+<li><p>To <a href="lazySpread.html"><code>lazySpread</code></a>: <code>split(s/|s|)</code> &#8596; <code>lazySpread(s)</code></p>
+</li></ul>
+
+<h3 id="uid489">LazySpread</h3>
+<h4 id="uid490">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="mostlySpread.html"><code>mostlySpread</code></a>: <code>lazySpread(s)</code> &#8596; <code>mostlySpread(s,|s|)</code></p>
+</li>
+<li><p>Using <a href="splitAmong.html"><code>splitAmong</code></a>: <code>lazySpread(s1)</code> &#8596; <code>splitAmong(s/|s|,<span class="cursive">N</span>/|<span class="cursive">N</span>|)</code></p>
+</li>
+<li><p>Using <a href="split.html"><code>split</code></a>: <code>lazySpread(s)</code> &#8596; <code>split(s/|s|)</code></p>
+</li></ul>
+
+<h3 id="uid494">Ban</h3>
+<h4 id="uid495">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="fence.html"><code>fence</code></a>: <code>ban(vs1, ns1)</code> &#8596; <code>fence(vs1,<span class="oline">ns1</span>)</code></p>
+</li>
+<li><p>Using <a href="among.html"><code>among</code></a>: <code>ban(vs1, ns1)</code> &#8596; <code>among(vs1,{<span class="oline">ns1</span>})</code></p>
+</li></ul>
+
+<h4 id="uid498">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="fence.html"><code>fence</code></a>: <code>ban(vs1,<span class="oline">ns1</span>)</code> &#8596; <code>fence(vs1, ns1)</code></p>
+</li></ul>
+
+<h3 id="uid500">SingleCapacity</h3>
+<h4 id="uid501">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="cumulatedCapacity.html"><code>cumulatedCapacity</code></a>: <code>singleCapacity(ns, nb, r)</code> &#8596; <code>&#8704;n &#8712; ns, cumulatedCapacity({n}, nb, r)</code></p>
+</li></ul>
+
+<h3 id="uid503">Fence</h3>
+<h4 id="uid504">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="ban.html"><code>ban</code></a>: <code>fence(vs1, ns1)</code> &#8596; <code>ban(vs1,<span class="oline">ns1</span>)</code></p>
+</li></ul>
+
+<h4 id="uid506">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="ban.html"><code>ban</code></a>: <code>fence(vs1,<span class="oline">ns1</span>)</code> &#8596; <code>ban(vs1, ns1)</code></p>
+</li></ul>
+
+<h3 id="uid508">Among</h3>
+<h4 id="uid509">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="splitAmong.html"><code>splitAmong</code></a>: <code>among(vs1, ns1)</code> &#8596; <code>splitAmong({vs1},ns1)</code></p>
+</li></ul>
+
+<h4 id="uid511">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="gather.html"><code>gather</code></a>: <code>among(s,<span class="cursive">N</span>/|<span class="cursive">N</span>|)</code> &#8596; <code>gather(s)</code></p>
+</li>
+<li><p>To <a href="ban.html"><code>ban</code></a>: <code>among(vs1,{<span class="oline">ns1</span>})</code> &#8596; <code>ban(vs1, ns1)</code></p>
+</li></ul>
+
+<h3 id="uid514">Gather</h3>
+<h4 id="uid515">Reformulation(s)</h4>
+<ul>
+<li><p>Using <a href="among.html"><code>among</code></a>: <code>gather(s)</code> &#8596; <code>among(s,<span class="cursive">N</span>/|<span class="cursive">N</span>|)</code></p>
+</li></ul>
+
+<h3 id="uid517">CumulatedCapacity</h3>
+<h4 id="uid518">Specialization(s)</h4>
+<ul>
+<li><p>To <a href="singleCapacity.html"><code>singleCapacity</code></a>: <code>&#8704;n &#8712; ns, cumulatedCapacity({n}, nb, r)</code> &#8596; <code>singleCapacity(ns, nb, r)</code></p>
+</li></ul>
+<div id="footer">last update: 08/19/2012</div></div>
+    <div id="page-footer">
+      <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </div>
+  </body>
+</html>
