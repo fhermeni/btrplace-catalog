@@ -1,0 +1,260 @@
+/**
+* Global
+**/
+body {
+    text-align: justify;
+    font-size:14px;
+    color: #222;
+    line-height: 180%;
+    background: #eee;
+    min-width:950px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#content {
+    font-size: 12pt;
+    text-align: justify;
+    counter-reset: chapter;
+    padding: 10px;
+    overflow:auto;
+    position:relative;
+    width: 900px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 40pt;
+    font-weight: bold;
+    font-family: impact;
+    color: #2A65AD;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24pt;
+    color:#222;
+    font-family:'Times New Roman',serif;
+}
+
+
+/* Canvas */
+#canvas {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Left block */
+#leftBlock {
+	display: block;
+	float: left;
+}
+
+/* Right block */
+#rightBlock {
+	display: block;
+	float: right;
+}
+
+
+/**
+* Script viewer
+**/
+#script {
+	//float: left;
+}
+
+#scriptTitle {
+	text-align: center;
+	font-size: 17px;
+	margin-bottom: 3px;
+}
+
+#scriptContent {
+    border:1px solid #666;
+    background-color:#DDD;
+    padding:4px;
+    color:#222;
+    border-radius:2px;
+    font-family:Monaco, Menlo, 'Ubuntu Mono', 'Droid Sans Mono', Consolas, monospace;
+    text-align:left;
+    font-size:14px
+}
+
+
+/**
+* Diagram stuff
+**/
+#diagram {
+    overflow:hidden;
+    line-height:normal;
+    position:relative;
+    padding-top:15px;
+    width:600px;
+    margin-left:20px;
+    padding-bottom:15px;
+    padding-right:15px;
+    line-height:180%;
+}
+
+#diagram * {
+    box-sizing:border-box;
+}
+
+#actionLines {
+    position:relative;
+}
+
+.disabled {
+    background-color: lightgray;
+    color: #AAA;
+}
+
+#currentFrameLine {
+    position:absolute;
+    //border-left:1px solid rgba(20,20,20,0.5);
+    border-left:1px solid rgba(255,0,0,0.5);
+    left:0;
+    top:0;
+    bottom:0;
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);;
+    -o-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);;
+    color: red;
+}
+
+.actionContainer {
+    height:30px;
+    /*border:1px solid red;  */
+}
+
+.actionLine {
+    border-top:1px solid gray;
+    position:relative;
+    top:14px;
+    z-index:-1;
+    margin-left:-15px;
+}
+
+#timeLineBar {
+    border-top:1px solid #222;
+    position:relative;
+    margin-left:-15px;
+    top:10px;
+    height:20px;
+    z-index:10;
+}
+
+#graduations {
+    position:absolute;
+    width:100%;
+    height:6px;
+}
+
+.timeLineGrad {
+    position:absolute;
+    bottom:-10px;
+    height:100%;
+    border-left: 1px solid gray ;
+    box-sizing: initial;
+}
+
+.timeLineGradLabel {
+    position:absolute;
+    bottom:-2.5em;
+    margin-left:-3px;
+    color:gray;
+}
+
+.timeLineGradLabel.withEvent {
+    color:black;
+    font-weight:bold;
+}
+
+.timeLineMark {
+    position:absolute;
+    height:10px;
+    border:1px solid #666;
+    border-bottom:none;
+    width:3px;
+    margin-left:-1px;
+    background-color:#444;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+    z-index:1;
+    cursor:pointer;
+}
+
+.actionBar {
+    position:absolute;
+    border:1px solid #444;
+    background-color: #d2d8b1;
+    border-radius:2px;
+    padding-left: 0;
+    font-size:10px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.finishedAction {
+    background-color:#222;
+    color:gray;
+}
+
+
+/**
+* Player part
+**/
+#playerControls {
+    font-size:0.5em;
+    text-align: center;
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.greenButton {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: .6em 1em;
+    border: solid 1px #aab089;
+    text-decoration: none;
+    background: #d2d8b1;
+    border-radius: 4px;
+    font-size: 1.75em;
+    color: #444;
+}
+
+.player_button {
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/player.png');
+	float: left;
+	margin-left: 5px;
+	margin-top: 20px;
+}
+
+.player_button:hover {
+	cursor: pointer;
+	background-position-y: -20px;
+}
+
+.player_button .tt {
+	display: none;
+	padding: 2px 3px;
+	margin-left: 10px;
+	margin-top: 15px;
+	font-size: 10pt;
+}
+
+.player_button:hover .tt {
+	display: inline;
+	position: absolute;
+	background: #ffffff;
+	border: solid #cccccc 1px;
+	color: #6c6c6c;
+}
