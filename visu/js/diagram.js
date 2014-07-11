@@ -4,11 +4,49 @@
 */
 
 var TIME_UNIT_SIZE = 100 ;
+var gradMarks = []; // List of the marks in the X graduation (to avoid duplicates)
+var currentActions,
+scenarioDuration = 0 ;
 
-// List of the marks in the X graduation (to avoid duplicates)
-var gradMarks = [];
 
-/*
+/**
+* Creates the diagram from a given actions list.
+* (Automatically compute the TIME_UNIT_SIZE)
+*/
+function createDiagram(actions) {
+	currentActions = actions;
+	scenarioDuration = getScenarioDuration(actions) ;
+	TIME_UNIT_SIZE = computeTimeUnitSize(scenarioDuration);
+	createGraduations(scenarioDuration);
+	loadActions(actions);
+}
+
+/**
+* Resets the diagram.
+*/
+function resetDiagram() {
+
+	if (LOG) console.log("Reseting diagram");
+	
+	$(".actionContainer").remove();
+	$("#graduations").children().remove();
+	
+	updateTimeLinePosition(0);
+	createDiagram(currentActions);
+}
+
+function finalDiagram() {
+
+	if (LOG) console.log("Jump to the end of diagram");
+	
+	$(".actionContainer").remove();
+	$("#graduations").children().remove();
+	
+	updateTimeLinePosition(scenarioDuration);
+	createDiagram(currentActions);
+}
+
+/**
  * Creates the graduation in the diagram
  * duration : number of steps
  */

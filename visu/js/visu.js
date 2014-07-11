@@ -22,33 +22,18 @@ function init() {
 	scenario = JSON.parse(scenario);
 		
     // Create the config from JSON
-    config = new Configuration();
-    for (var i = 0; i < cfg.length; i++) {
-    	var nodeData = cfg[i];
-    	var node = new Node(nodeData.id, nodeData.cpu, nodeData.mem);
-    	for (var j = 0; j < nodeData.vms.length; j++) {
-    		var vmData = nodeData.vms[j];
-    		var vm = new VirtualMachine(vmData.id, vmData.cpu, vmData.mem);
-    		// Host and add the vm to the configuration
-    		node.host(vm);
-    		config.vms.push(vm);
-    	}
-    	// Add the node in the configuration
-    	config.nodes.push(node);
-    }
-    
+	loadConfiguration();
+	
     // Draw the configuration
 	if (paper) paper.clear();
 	drawConfiguration("canvas");
-    
+	
 	// Fill the editor with the script
 	$("#scriptContent").html(script.replace(/\n/g,"<br />"));
 
-	// Get the computed scenario (plan) and create the diagram
-
-	// If there is a solution : the data contains action
-	if( scenario.actions ){
-    	    createDiagram(scenario.actions);
+	// Create the diagram
+	if( scenario.actions ) {
+		createDiagram(scenario.actions);
 	}
 	// There are errors in the user constraints script.
 	else if (scenario.errors) {
