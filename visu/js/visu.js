@@ -67,7 +67,7 @@ function loadFinalConfiguration() {
 			case "root":
 				break;
 			case "shutdownVM":
-				config.getNode("N"+action.on).unhost(config.getVirtualMachine(action.vm));
+				config.getNode("N"+action.on).unhost(config.getVirtualMachine("VM"+action.vm));
 				break;
 			case "migrateVM":
 				config.getNode("N"+action.from).unhost(config.getVirtualMachine("VM"+action.vm));
