@@ -59,6 +59,67 @@ function init() {
 	}
 }
 
+function resetConfiguration() {
+	
+    loadConfiguration();
+	if (paper) paper.clear();
+	drawConfiguration("canvas");
+}
+
+function loadFinalConfiguration() {
+	
+	loadConfiguration();
+	
+	// Apply the scenario and generate the resulting configuration
+	var sortedActions = scenario.actions.sort(function (a, b) {return a.start - b.start;});
+	for(var i in sortedActions){
+		var action = sortedActions[i];
+		switch(action.id){
+			case "allocate":
+				break;
+			case "bootVM":
+				break;
+			case "root":
+				break;
+			case "shutdownVM":
+				config.getNode("N"+action.on).unhost(config.getVirtualMachine(action.vm));
+				break;
+			case "migrateVM":
+				config.getNode("N"+action.from).unhost(config.getVirtualMachine("VM"+action.vm));
+				config.getNode("N"+action.to).host(config.getVirtualMachine("VM"+action.vm));
+				break;
+			case "shutdownNode":
+				config.getNode("N"+action.node).online = false;
+				break;
+		    case "bootNode":
+		    	config.getNode("N"+action.node).online = true;
+		    	break;
+		}
+	}
+	
+	if (paper) paper.clear();
+	drawConfiguration("canvas");
+}
+
+function loadConfiguration() {
+	
+    // Create the config from JSON
+	config = new Configuration();
+    for (var i = 0; i < cfg.length; i++) {
+    	var nodeData = cfg[i];
+    	var node = new Node(nodeData.id, nodeData.cpu, nodeData.mem);
+    	for (var j = 0; j < nodeData.vms.length; j++) {
+    		var vmData = nodeData.vms[j];
+    		var vm = new VirtualMachine(vmData.id, vmData.cpu, vmData.mem);
+    		// Host and add the vm to the configuration
+    		node.host(vm);
+    		config.vms.push(vm);
+    	}
+    	// Add the node in the configuration
+    	config.nodes.push(node);
+    }
+}
+
 function drawConfiguration(id) {
 	var verbose = true;
 	if (verbose) console.log("[DIAGRAM] Drawing current configuration ===================");
@@ -122,7 +183,7 @@ function drawConfiguration(id) {
     if (verbose) console.log("[DIAGRAM] Finished drawing =====================");
 }
 
-/*
+/**
  * Applies the callback f to all the objects in the list l and its sublists.
  */
 function foreachArray(l, f){

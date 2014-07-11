@@ -36,41 +36,151 @@ function playerPreviousStep(){
 	playerStepMove(-1, animationBaseDuration);
 }
 
-var pauseCallback ;
 function playerPause(callback){
 	$("#pauseButton").addClass("disabled");
 	doPause = true;
 	pauseCallback = callback;
 }
 
-function playerRewind(callback){
+function playerPlay(){
 	if( isPlaying ){
-		if (LOG) console.error("Can't rewind ! It's alreay playing !!");
 		return ;
 	}
 
-	playLoop(-1,rewindSpeed, function(){
-		console.error("Updating click bindings !");
-    });
-    return ;
-    /*
-	var backLoop = function(){
-		if (LOG) console.log("BACK LOOP !");
-		var canPlay = playerStepMove(-1, 100);
-		setTimeout(function(){
-			if( canPlay ){
-				backLoop();
-			}
-		}, 100);
-	};
-
-	backLoop();
-	*/
+	// If the user clicks Play after the animation has finished,
+	// the animation goes back to the start
+	if( playerNextTarget > scenarioDuration ){
+    		playerInit();
+    		return ;
+    }
+    // Set the player mode
+	setPlayerMode("play");
+	// Start the scenario loop
+	playLoop(1, playSpeed);
 }
 
-$(document).ready(function(){
-	setPlayerMode("pause");
-});
+function playerInit() {
+
+	if( isPlaying ){
+		if (LOG) console.error("Can't re-init ! It's alreay playing !!");
+		return ;
+	}
+	
+	playerNextTarget = 1;
+	resetConfiguration();
+	resetDiagram();
+}
+
+function playerEnd() {
+	
+	if( isPlaying ){
+		if (LOG) console.error("Can't go to end ! It's alreay playing !!");
+		return ;
+	}
+	
+	playerNextTarget = scenarioDuration + 1;
+	loadFinalConfiguration();
+	finalDiagram();
+}
+
+function playLoop(direction, duration, callback){
+	doPause = false;
+	// Play the animation & set the next step as a callback to the animation
+	var canPlay = playerStepMove(direction, duration, function(){
+		if( doPause ){
+			setPlayerMode("pause");
+			$("#pauseButton").removeClass("disabled");
+			doPause = false;
+            if( pauseCallback ){
+            	pauseCallback();
+            }
+			return false;
+		}
+
+		// play it
+		playLoop(direction, duration, callback);
+	});
+
+	if( !canPlay ){
+		if (LOG) console.log("[Player] Unreachable step. Stopping...");
+		if( callback ){
+			console.log("Calling PlayLoop callback!");
+
+    		setTimeout(function(){
+    			callback();
+    		},1000);
+    	}
+    	setPlayerMode("pause");
+   		return false;
+	}
+	else {
+		if (LOG) console.log("[Player] Can play !");
+	}
+}
+
+function playerStepMove(direction, duration, callback){
+	if( isPlaying ){
+		if (LOG) console.log("Is already playing !");
+		return false ;
+	}
+
+	var start, end, step;
+	if( direction == 1 ){
+		start = playerNextTarget -1;
+		end = playerNextTarget ;
+		step = start;
+	}
+	else if( direction == -1 ){
+		start = playerNextTarget -1;
+		end = playerNextTarget -2;
+		step = end;
+	}
+
+	// Some validation
+	if( end < 0 || end > scenarioDuration){
+		//console.log("[Player] Unreachable step. Stopping...");
+		return false;
+	}
+
+	isPlaying = true ;
+	//console.log("Playing step #"+step+" : ",getActionsStartingAt(step));
+
+	var actions = getActionsStartingAt(step);
+	for(var i in actions){
+		var action = actions[i];
+		actionHandler(action, direction, duration, function(){});
+	}
+
+	// Update the SVG with the new configuration
+
+	// DEBUG1
+	//if (LOG) console.log("[LOG] Going to redraw after animations preparation");
+	//drawConfiguration('canvas');
+
+	// Play all the animations
+	for(var i in animationQueue){
+		var anim = animationQueue[i];
+		anim();
+	}
+
+	animationQueue = [];
+
+	// Play the time-line animation
+	timeLineAnimation(start, end, duration, function(){
+		isPlaying = false;
+		playerNextTarget += direction;
+
+		// DEBUG1
+		//if (LOG) console.log("[LOG] Going to redraw after all animations completed");
+		//drawConfiguration('canvas');
+
+		if( callback ){
+			callback();
+		}
+	});
+	return true;
+
+}
 
 function actionHandler(action, direction, timeUnit, callback){
 	var duration = (action.end - action.start) * timeUnit * 0.9;
