@@ -47,11 +47,10 @@ function init() {
 function resetConfiguration() {
 	
     loadConfiguration();
-	if (paper) paper.clear();
 	drawConfiguration("canvas");
 }
 
-function loadFinalConfiguration() {
+function finalConfiguration() {
 	
 	loadConfiguration();
 	

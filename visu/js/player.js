@@ -86,7 +86,7 @@ function playerEnd() {
 	}
 	
 	playerNextTarget = scenarioDuration + 1;
-	loadFinalConfiguration();
+	finalConfiguration();
 	finalDiagram();
 }
 
