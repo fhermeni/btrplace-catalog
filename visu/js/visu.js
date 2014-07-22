@@ -21,11 +21,10 @@ function init() {
 	script = script.replace(/\n/g,"<br />");
 	scenario = JSON.parse(scenario);
 		
-    // Create the config from JSON
+    // Create the config object from JSON
 	loadConfiguration();
 	
     // Draw the configuration
-	if (paper) paper.clear();
 	drawConfiguration("canvas");
 	
 	// Fill the editor with the script
@@ -81,7 +80,6 @@ function finalConfiguration() {
 		}
 	}
 	
-	if (paper) paper.clear();
 	drawConfiguration("canvas");
 }
 
@@ -124,8 +122,6 @@ function drawConfiguration(id) {
     var max_height = 0; //maximum height of the node on the current line
     //How many nodes per line, how many lines
 
-    var posX = 0;
-    var posY = 0;
     for (var i in config.nodes) {
         var n = config.nodes[i];
         var dim = n.boundingBox();
