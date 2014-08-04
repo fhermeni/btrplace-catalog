@@ -288,7 +288,7 @@ function migrate(vm, src, dst, duration, f) {
 		//Refresh the nodes
 		src.refresh();
 		dst.refresh();
-	}
+	};
 	//movingVM.box.animate({transform :"T " + (ghostDst.posX - vm.posX) + " " + (ghostDst.posY - vm.posY)}, fast ? 50 : (300 * vm.mem),"<>",
 	movingVM.box.animate({transform :"T " + (ghostDst.posX - vm.posX) + " " + (ghostDst.posY - vm.posY)}, duration,"<>",function(){
 	    	animationEnd();

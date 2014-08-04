@@ -8,7 +8,7 @@ function Configuration (ns,vs) {
                 return this.nodes[i];
             }
         }
-    }
+    };
 
     this.getHoster = function(id) {
         for (var i in this.nodes) {
@@ -16,7 +16,7 @@ function Configuration (ns,vs) {
                 return this.nodes[i];
             }
         }
-    }
+    };
 
     this.getVirtualMachine = function (id) {
         for (var i in this.vms) {
@@ -24,7 +24,7 @@ function Configuration (ns,vs) {
                 return this.vms[i];
             }
         }
-    }
+    };
 
     this.btrpToJSON = function(){
         var json = {};
@@ -34,35 +34,35 @@ function Configuration (ns,vs) {
                 nJSON = {};
 
         }
-    }
+    };
 
     this.btrpSerialization = function() {
         var buffer = "#list of nodes\n";
         for (var i in this.nodes) {
-    	    var  n = this.nodes[i];
-    	    buffer = buffer + n.id + " 1 " + n.cpu + " " + n.mem + "\n";
+            var  n = this.nodes[i];
+            buffer = buffer + n.id + " 1 " + n.cpu + " " + n.mem + "\n";
         }
         buffer = buffer + "#list of VMs\n";
         for (var  i in this.vms) {
-    	var vm = this.vms[i];
-    	buffer = buffer + "sandbox."+vm.id + " 1 " + vm.cpu + " " + vm.mem + "\n";
+	    	var vm = this.vms[i];
+	    	buffer = buffer + "sandbox."+vm.id + " 1 " + vm.cpu + " " + vm.mem + "\n";
         }
         buffer += "#initial configuration\n";
         for (var i in this.nodes) {
-    	var n = this.nodes[i];
-    	if (n.online) {
-    	    buffer += n.id;
-    	} else {
-    	    buffer = buffer + "(" + n.id + ")";
-    	}
-    	for (var j in n.vms) {
-    	    var vm = n.vms[j];
-    	    buffer = buffer + " sandbox." + vm.id;
-    	}
-    	buffer += "\n";
+            var n = this.nodes[i];
+            if (n.online) {
+	            buffer += n.id;
+            } else {
+	            buffer = buffer + "(" + n.id + ")";
+            }
+            for (var j in n.vms) {
+	            var vm = n.vms[j];
+	            buffer = buffer + " sandbox." + vm.id;
+            }
+            buffer += "\n";
         }
         return buffer;
-    }
+    };
 
     this.getNextNodeID = function(){
     	var candidate = 0;
@@ -78,7 +78,7 @@ function Configuration (ns,vs) {
 			}
     	}
     	return "N"+candidate;
-    }
+    };
 
     this.getNextVMID = function(){
         	var candidate = 0;
@@ -94,7 +94,7 @@ function Configuration (ns,vs) {
     			}
         	}
         	return "VM"+candidate;
-    }
+    };
 
     this.toStorage = function(){
     	var result = [],
@@ -105,7 +105,7 @@ function Configuration (ns,vs) {
             nodes.push(this.nodes[i].toStorage());
     	}
     	return result ;
-    }
+    };
 
     this.fromStorage = function(configData){
     	this.nodes = [];
@@ -117,5 +117,5 @@ function Configuration (ns,vs) {
     	}
 		editor.setValue(configData[1]);
 		drawConfiguration("canvas");
-    }
+    };
 }

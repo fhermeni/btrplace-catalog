@@ -16,7 +16,7 @@ function init() {
 
     if (LOG) console.log("Init");
     
-    // Get INPUTS
+    // Get INPUTS from config.js
 	cfg = JSON.parse(cfg);
 	script = script.replace(/\n/g,"<br />");
 	scenario = JSON.parse(scenario);
@@ -28,7 +28,7 @@ function init() {
 	drawConfiguration("canvas");
 	
 	// Fill the editor with the script
-	$("#scriptContent").html(script.replace(/\n/g,"<br />"));
+	$("#scriptContent").html(script);
 
 	// Create the diagram
 	if( scenario.actions ) {
@@ -53,7 +53,7 @@ function finalConfiguration() {
 	
 	loadConfiguration();
 	
-	// Apply the scenario and generate the resulting configuration
+	// Apply the scenario and generate the final configuration
 	var sortedActions = scenario.actions.sort(function (a, b) {return a.start - b.start;});
 	for(var i in sortedActions){
 		var action = sortedActions[i];
@@ -85,7 +85,7 @@ function finalConfiguration() {
 
 function loadConfiguration() {
 	
-    // Create the config from JSON
+    // Create the config object from JSON data
 	config = new Configuration();
     for (var i = 0; i < cfg.length; i++) {
     	var nodeData = cfg[i];
@@ -130,7 +130,7 @@ function drawConfiguration(id) {
         n.posY = height;
         if (cur_width + dim[0] > max_width) {
             height += max_height;
-            if (width < cur_width) {width = cur_width};
+            if (width < cur_width) {width = cur_width;}
             cur_width = dim[0];
             n.posX = 0;
             n.posY = height;
@@ -141,7 +141,7 @@ function drawConfiguration(id) {
             n.posX = cur_width;
             cur_width += dim[0];
             if (i == config.nodes.length - 1) {
-                if (width < cur_width) {width = cur_width};
+                if (width < cur_width) {width = cur_width;}
                 height += max_height;
             }
         }

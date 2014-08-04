@@ -91,7 +91,7 @@ function addAction(label, start, end){
     var actionContainer = $("<div></div>").addClass("actionContainer"),
 		actionBar = $("<div></div>").addClass("actionBar"),
 		actionLine = $("<div></div>").addClass("actionLine"),
-		gradMark = $("<div></div>").addClass("gradMark");
+		gradMark = $("<div></div>").addClass("gradMark"),
     	timeLine = $("#timeLine");
 
 	actionBar.html(label);
@@ -168,7 +168,7 @@ function timeLineAnimation(start, end, duration, callback){
     			callback();
     		}
     	}
-    })
+    });
 };
 
 /**
@@ -184,7 +184,7 @@ function computeTimeUnitSize(duration){
  * @return The duration of the scenario.
  */
 function getScenarioDuration(actions){
-	var maxTime = 0 , actions = actions ;
+	var maxTime = 0;
 	for(var i in actions){
 		var action = actions[i];
 		if( action.end > maxTime ){
